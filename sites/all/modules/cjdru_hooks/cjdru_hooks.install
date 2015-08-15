@@ -1,0 +1,126 @@
+<?php
+
+/**
+ * Implementation of hook_install().
+ */
+function cjdru_hooks_install() {
+  drupal_install_schema('cjdru_hooks');
+  db_query("UPDATE {system} SET weight = '9999' WHERE name = 'knauf_inst_hooks'");
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function cjdru_hooks_uninstall() {
+  drupal_uninstall_schema('cjdru_hooks');
+}
+
+/**
+ * Implementation of hook_schema().
+ */
+function cjdru_hooks_schema() {
+  $schema['user_external_picture'] = array(
+    'fields' => array(
+      'uid' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+      ),
+      'url' => array(
+        'type' => 'varchar',
+        'length' => '255',
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('uid'),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implementation of hook_update_N().
+ */
+function cjdru_hooks_update_6001() {
+  $attendance = array(
+    'description' => 'Store attendees each week.',
+    'fields' => array(
+      'eid' => array(
+        'description' => 'The primary identifier for an entry.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE
+      ),
+      'uid' => array(
+        'description' => 'The primary identifier for a user.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'wid' => array(
+        'description' => 'The primary identifier for a week (based on calendar week number).',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'attendance' => array(
+        'description' => 'The attendance for a particular user.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'games' => array(
+        'description' => 'The name for a proposed game.',
+        'type' => 'text',
+        'size' => 'normal',
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array(
+      'eid'
+    ),
+  );
+  $games = array(
+    'description' => 'Store games each week.',
+    'fields' => array(
+      'eid' => array(
+        'description' => 'The primary identifier for an entry.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE
+      ),
+      'uid' => array(
+        'description' => 'The primary identifier for a user.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'wid' => array(
+        'description' => 'The primary identifier for a week (based on calendar week number).',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'games' => array(
+        'description' => 'The name for a proposed game.',
+        'type' => 'text',
+        'size' => 'normal',
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array(
+      'eid'
+    ),
+  );
+  
+  $ret = array();
+  db_create_table($ret, 'cjdru_week_attendances', $attendance);
+  db_create_table($ret, 'cjdru_week_games', $games);
+  return $ret;
+}
+
+function cjdru_hooks_update_6002() {
+  $ret = array();
+  db_add_field($ret, 'cjdru_week_attendances', 'created', array('type' => 'int', 'not null' => TRUE, 'default' => 0));
+  db_add_field($ret, 'cjdru_week_games', 'created', array('type' => 'int', 'not null' => TRUE, 'default' => 0));
+  return $ret;
+}

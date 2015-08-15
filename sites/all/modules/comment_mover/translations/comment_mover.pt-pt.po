@@ -1,0 +1,153 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2009-09-14 18:10+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: introfini <introfini@gmail.com>\n"
+"Language-Team:  <introfini@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: PORTUGAL\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: comment_mover.module:15
+msgid "Comment mover enables you to move comments and nodes around by pruning and grafting. Pruning and grafting are similar to cut and paste but operate on branches, not on single comments. If you prune and graft a comment thread, the entire thread will be moved, not just the pruned comment."
+msgstr "O modulo Comment mover permite-lhe mover, podar, e enxertar comentários e nós. Podar e enxertar têm um comportamento semelhante a copiar e colar mas operam em ramos, não em comentários singulares. Se podar e enxertar uma lista de comentários, todo a lista será movida, e não apenas o comentário podado."
+
+#: comment_mover.module:16
+msgid "Basic use is simple; it starts by pruning a node or comment via the link prune. The pruned node/comment now appears in the Graft block. The graft block shows the title and author of the pruned content and always allows you to cancel the action. You can now navigate through your site and choose one of two options: grafting or conversion."
+msgstr "O uso básico é simples; comece por podar um nó ou comentário através do linque 'podar'. O nó/comentário aparece no bloco de Enxertos. O bloco de Enxerto mostra o título e o autor do conteúdo podado e permite-lhe cancelar a ação. Pode assim navegar pela sua página e escolher uma de duas opções: enxertar ou converter."
+
+#: comment_mover.module:17
+msgid "Grafting is a simple matter: simply click the graft link on the content (comment or node) you want the pruned object to reside under. All childcomments will be moved together with the pruned node or comment"
+msgstr "Enxertar é fácil: simplesmente clique no linque 'enxertar' no conteúdo (comentário ou nó) onde pretende que o objecto podado seja realojado. Todos os comentários relacionados serão movidos com o nó/comentário podado."
+
+#: comment_mover.module:19
+msgid ""
+"If you just pruned a comment and enabled story and page under \"Enable promotion to the following node types\" on the <a href=\"@url\">comment mover settings page</a>, the graft block also shows you story and page in the selection of node types to which the\n"
+"comment can be converted. When you then, for example, select story and click convert, a story submission form will appear with prefilled fields. Edit if necessary, then click submit. A new story node will be created. All children of the original comment will be moved to the new node."
+msgstr ""
+"Se podou um comentário e activou História e Página em \"Activar promoção para os seguintes tipos de nó\" na <a href=\"@url\">página de configuração do comment mover</a>, o bloco enxertado também mostra História e Página na seleção de tipos de nó para \n"
+"o qual o comentário pode ser convertido. Assim, quando por exemplo selecionar História e clica em converter, aparecer-lhe-á um formulário de submissão de História com campos pré-preenchidos. Edite se necessário, e de seguida prima enviar. Um novo nó do tipo \n"
+"História será criado. Todos os filhos do comentário original serão movidos para o novo nó."
+
+#: comment_mover.module:21
+msgid "When you move a comment to another node or convert it to a node, the original comment will contain a link pointing to the comments new location. When you move a node to become a comment on another node, the original node will contain a redirect to the new location."
+msgstr ""
+"Quando move um comentário para outro nó ou o converte para nó, o comentário original vai conter um linque que aponta para a nova localização dos comentários. Quando move um nó que passa a comentário num outro nó, o nó original irá conter um \n"
+"redirecionamento para a nova localização."
+
+#: comment_mover.module:97
+msgid "graft"
+msgstr "enxertar"
+
+#: comment_mover.module:105
+msgid "prune"
+msgstr "podar"
+
+#: comment_mover.module:119;703
+msgid "Graft"
+msgstr "Enxertar"
+
+#: comment_mover.module:127
+msgid "Prune"
+msgstr "Podar"
+
+#: comment_mover.module:154
+msgid "Convert to"
+msgstr "Converter para "
+
+#: comment_mover.module:158
+msgid "Convert"
+msgstr "Converter"
+
+#: comment_mover.module:205
+msgid "Author has been set to %username."
+msgstr "%username foi definido como autor."
+
+#: comment_mover.module:211
+msgid "Submit %name"
+msgstr "Submeter %name"
+
+#: comment_mover.module:378;412;416
+msgid "This comment has been moved <a href=\"@url\">here</a>."
+msgstr "Este comentário foi movido para <a href=\"@url\">aqui</a>."
+
+#: comment_mover.module:394
+msgid "comment cannot be grafted on one of its children"
+msgstr "o comentário não pode ser enxertado num dos seus filhos"
+
+#: comment_mover.module:546;557
+msgid "Pruning %title."
+msgstr "Podando %title."
+
+#: comment_mover.module:562
+msgid "Unable to prune the post."
+msgstr "Incapaz de podar o post."
+
+#: comment_mover.module:575
+msgid "Are you sure you want to move this post here?"
+msgstr "Tem a certeza que quer mover este post para aqui?"
+
+#: comment_mover.module:596;616;636
+msgid "Grafted %title."
+msgstr "Enxertado %title."
+
+#: comment_mover.module:643
+msgid "Unable to move the post."
+msgstr "Incapaz de mover o post."
+
+#: comment_mover.module:698
+msgid "Comment mover clipboard"
+msgstr "Área de transferência de Comment mover "
+
+#: comment_mover.module:747;754
+msgid "By !author @date"
+msgstr "Por !author @date"
+
+#: comment_mover.module:748;755
+msgid "cancel"
+msgstr "cancelar"
+
+#: comment_mover.module:811
+msgid "Enable pruning of the following node types"
+msgstr "Activar poda para os seguintes tipos de nó"
+
+#: comment_mover.module:815
+msgid "Define the node types that can be pruned. Note that pruning doesn't make sense for certain node types (poll, for example)."
+msgstr "Defina os tipos de nó que podem ser podados. Note que podar não faz sentido para certos tipos de nós (votações, por exemplo)."
+
+#: comment_mover.module:820
+msgid "Enable pruning of comments on the following node types"
+msgstr "Activar poda de comentários nos seguintes tipos de nó"
+
+#: comment_mover.module:824
+msgid "Allow comments on these node types to be pruned and moved to other nodes or be promoted to a node."
+msgstr "Permitir que os comentários nestes tipos de nós sejam podados e movidos para outros nós ou promovidos a nó."
+
+#: comment_mover.module:829
+msgid "Enable grafting on the following node types"
+msgstr "Activar enxertos nos seguintes tipos de nó"
+
+#: comment_mover.module:833
+msgid "These node types allow grafting of pruned nodes and comments."
+msgstr "Estes tipos de nós permitem enxerto de nós e comentários podados. "
+
+#: comment_mover.module:838
+msgid "Enable promotion to the following node types"
+msgstr "Activar promoção para os seguintes tipos de nó"
+
+#: comment_mover.module:842
+msgid "Comments can be promoted to these nodetypes. Note that this doesn't make sense for certain node types (poll, for example)."
+msgstr "Comentários podem ser promovidos para estes tipos de nó. Note que isto não faz sentido para certos tipos de nó (votações, por exemplo)."
+
+#: comment_mover.info:0
+msgid "Comment mover"
+msgstr ""
+
+#: comment_mover.info:0
+msgid "Move comments to other threads or convert them to nodes."
+msgstr "Mova comentários para outros tópicos ou converta-os em nós. "
+

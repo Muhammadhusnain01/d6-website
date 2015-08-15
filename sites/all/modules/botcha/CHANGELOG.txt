@@ -1,0 +1,93 @@
+botcha 6.x-1.x-dev
+------------------
+[#1637548] Fixed "Undefined variable: path in _botcha_url()"
+[#1694962] Fixed "Undefined index: xxxx_name in botcha_form_alter_botcha()"
+[#1788978] by Staratel: Move rule action to group BOTCHA
+[NOISSUE]  Added _POST and _GET to loglevel 5
+[NOISSUE]  Added _SERVER to loglevel 5
+[NOISSUE]  Added honeypot_js_css2field recipe
+[#1800532] by drclaw: Fixed JS errors in IE7
+
+
+botcha 6.x-1.8, 2012-05-02
+--------------------------
+[#5308708] Added autocomplete=off to avoid false detects with client's autocomplete
+[NOISSUE]  Coder style fixes
+[NOISSUE]  Reworded "Form session reuse detected" message, added "Please try again..."
+[NOISSUE]  Backported secret key generation cleanup from 7.x-1.x-dev
+[NOISSUE]  Refactoring: Allow named recipe books other than 'default'; Use form_state to pass '#botcha' value
+[NOISSUE]  Remove Captcha integration text from help if Captcha module is not present
+[NOISSUE]  Remove hole in user_login_block protection when accessed via /admin/ path
+[NOISSUE]  Reworked _form_alter and _form_validate workings to allow clean reset of default values
+[NOISSUE]  Added simple honeypot recipe suitable for simpletest (no JS)
+[#1075722] Backport D7 session handling to D6
+[NOISSUE]  Added simpletest test cases
+[NOISSUE]  Fixed warning in rules integration
+
+
+botcha 6.x-1.7, 2011-09-22
+--------------------------
+[#1180272] Rules integration - botcha_form_approved, botcha_form_rejected, botcha_rules_action_regenerate_seed
+[#1004218] Rearranging text order for screen readers again
+[#1004218] Added CSS visibility:hidden for screen readers
+[#1285092] Make Javascript message more user friendly
+[NOISSUE]  Filter sensitive form data from detailed BOTCHA logs
+[#1075722] by kndr: Compatibility with pressflow
+
+
+botcha 6.x-1.6, 2011-08-27
+--------------------------
+[Roadmap, #1044368] Added forms list to configuration page
+[Roadmap] Added admin link option to add/edit BOTCHA to forms
+[NOISSUE] Added 'skip BOTCHA' permission
+[NOISSUE] Cleanup admin/user/botcha/botcha paths
+[#1058110] Fixed validation priority on user_login* forms
+[NOISSUE] Fixed missing call to drupal_install_schema in install. duh!
+[#1004218] Addition for screen readers. Apparently, they don't hande CSS display:none.
+[#1089522] Fixed warning: array_unshift() [function.array-unshift]: The first argument should be an array
+
+
+botcha 6.x-1.5, 2011-02-01
+--------------------------
+[NOISSUE] Fixed url query string for non-clean URLs
+[#1024106] Fixed problem with Drupal installations in subfolder
+
+
+botcha 6.x-1.4, 2010-12-19
+--------------------------
+[NOISSUE] Secret key setting and random generator
+[NOISSUE] Secret key generation upon install
+[NOISSUE] Clarify loglevels
+[NOISSUE] Some weird statistics glitch - counters not self-initialized (cache problem?)
+[NOISSUE] Added "No Resubmit" recipe
+[NOISSUE] Split Botcha worker code into new botcha.botcha.inc
+[NOISSUE] Changed 'noresubmit' recipe error message to account for humans pressing "back" and resubmit
+[NOISSUE] Fixed wrong URL and skipped user/register for multi-lingual sites
+[NOISSUE] Fixed skipped user/register for non-clean URLs
+
+
+botcha 6.x-1.3, 2010-12-07
+--------------------------
+[#991416] Fixed WSOD upon install
+
+
+botcha 6.x-1.2, 2010-12-07
+--------------------------
+[NOISSUE] Unneeded code removed
+[NOISSUE] Added format to % blocked statistics on status
+[NOISSUE] README.txt updated
+
+
+botcha 6.x-1.1, 2010-12-07
+--------------------------
+[NOISSUE] Updated README.txt; Split todo items from README.txt into TODO.txt
+
+
+botcha 6.x-1.0, 2010-11-26
+--------------------------
+[NOISSUE] Initial commit, First Release
+[NOISSUE] First working code, release v1.0
+[ROADMAP] Added statistic counters
+[ROADMAP] Addded some configuration settings
+
+

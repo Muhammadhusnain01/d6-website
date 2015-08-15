@@ -1,0 +1,797 @@
+<?php
+/**
+* Implementation of hook_init().
+*/
+function cjdru_hooks_init() {
+  drupal_add_css(drupal_get_path('module', 'cjdru_hooks') .'/css/cjdru_hooks.css');
+  drupal_add_js(drupal_get_path('module', 'cjdru_hooks') .'/js/cjdru_hooks.js');
+}
+
+/**
+* Implementation of hook_perm().
+*/
+function cjdru_hooks_perm() {
+  return array('administer week citations');
+}
+
+/**
+* Implementation of hook_menu().
+*/
+function cjdru_hooks_menu() {
+  $items = array();
+
+  $items['blogs'] = array(
+    'title' => t('Blogs des membres'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('cjdru_hooks_blogs_list'),
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  $items['admin/citations-de-la-semaine'] = array(
+    'title' => 'Citations de la semaine',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('cjdru_hooks_week_citations_form', array()),
+    'access arguments' => array('administer week citations'),
+    'type' => MENU_CALLBACK,
+  );
+  $items['weekoptions/addmore'] = array(
+    'page callback' => 'cjdru_hooks_weekoptions_add_more',
+    'page arguments' => array(),
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+/**
+ * implementation of hook_block
+ */
+function cjdru_hooks_block($op = 'list', $delta = 0, $edit = array()) {
+  $block = array();
+  switch ($op) {
+    case 'list' :
+      //Add primary categories block
+      $block['weekoptions']['info'] = 'Cette semaine au club';
+      $block['weekoptions']['cache'] = BLOCK_NO_CACHE;
+      break;
+    case 'view' :
+      switch ($delta) {
+        case 'weekoptions' :
+          $block = array(
+            'subject' => 'Cette semaine au club',
+            'content' => cjdru_hooks_weekoptions(TRUE),
+          );
+          break;
+      }
+      break;
+  }
+  return $block;
+}
+
+/**
+* Implementation of hook_menu_alter().
+*/
+function cjdru_hooks_menu_alter(&$items) {
+  unset($items['blog']);
+  //Forbid access to weekly posts in forum
+  $items['node/add/forum/7']['access callback'] = 'cjdru_hooks_post_hebdo_access';
+  $items['node/add/forum/7']['access arguments'] = array('create', 'forum');
+  $items['node/add/poll/7']['access callback'] = 'cjdru_hooks_post_hebdo_access';
+  $items['node/add/poll/7']['access arguments'] = array('create', 'poll');
+}
+
+/**
+* Implementation of hook_menu_alter().
+*/
+function cjdru_hooks_cron() {
+  if (date('w') == 6 && variable_get('cjdru_last_weekly_auto_post', '') != date('Y-m-d')) {
+    $days = array(t('Sunday'), t('Monday'), t('Tuesday'), t('Wednesday'), t('Thursday'), t('Friday'), t('Saturday'));
+    $months = array(t('January'), t('February'), t('March'), t('April'), t('May'), t('June'), t('July'), t('August'), t('September'), t('October'), t('November'), t('December'));
+    $nextWeek = time() + (6 * 24 * 60 * 60) + 21;
+
+    $quote = explode('\n', variable_get('cjdru_week_citations', ''));
+    $quote = $quote[date('W')-1];
+    (object) $node;
+    $node->title = ucfirst(strtolower($days[date('w', $nextWeek)])) .' '. date('d', $nextWeek) .' '. ucfirst(strtolower($months[date('n', $nextWeek) - 1]));
+    $node->body = 'Bonjour &agrave; tous, merci d\'indiquer pour cette semaine si vous serez l&agrave; et si vous faites jouer quelque chose :-)';
+    if ($quote != '') {
+      $body .= '<br><br>La citation de la semaine est la suivante : "'. $quote .'"<br>A m&eacute;diter ...';
+    }
+    $node->type = 'forum';
+    $node->active = 1;
+    $node->comment = 2;
+    $node->language = 'fr';
+    $node->created = time() + (6 * 24 * 60 * 60) + 14;
+    $node->changed = time() + (6 * 24 * 60 * 60) + 14;
+    $node->validated = TRUE;
+    $node->uid = 1;
+    $node->taxonomy = array(7);
+    node_save($node);
+    variable_set('cjdru_last_weekly_auto_post', date('Y-m-d'));
+  }
+}
+
+function cjdru_hooks_post_hebdo_access($op, $node, $account = NULL){
+  global $user;
+  if ($user->uid == 1) {
+    return TRUE;
+  }
+  else {
+    return NULL;
+  }
+}
+
+function cjdru_hooks_blogs_list(){
+  $query = db_query('SELECT * FROM {users} as u, {node} as n, {node_revisions} as nr WHERE u.uid=n.uid AND n.nid=nr.nid AND n.type="blog" GROUP BY u.name ORDER BY u.name ASC');
+  $form = array();
+  $form['howto'] = array(
+    '#value' => '<div><strong>Comment faire pour avoir mon propre blog sur le site du club ?</strong><br />Tous les membres inscrits ont la possibilit&eacute; de publier sur leur blog personnel. Il suffit, pour ce faire, de cliquer sur "Cr&eacute;er un contenu" dans le menu contextuel &agrave; gauche de l\'&eacute;cran puis de choisir "Billet de blog" pour commence &agrave; publier sur son blog. Le premier billet publi&eacute; est celui qui d&eacute;crira le contenu de votre blog sur la pr&eacute;sente liste donc pensez &agrave; bien faire votre pub !<br/><br/><br/><br/></div>'
+  );
+  $count = 0;
+  while ($row = db_fetch_array($query)) {
+    $form['link'.$count] = array(
+      '#value' => '<div class="blog-link">'.$row['name'].'<h2>'.l($row['title'], 'blog/'.drupal_strtolower($row['name'])).'</h2><div class="blog-teaser">'.$row['teaser'].'</div></div>'
+    );
+    $count++;
+  }
+  return $form;
+}
+
+function cjdru_hooks_week_citations_form(&$form, $form_state) {
+  $form = array();
+  $form['citations'] = array(
+    '#value' => variable_get('cjdru_week_citations', ''),
+    '#type' => 'textarea',
+    '#description' => 'Ce champ liste les citations pour chaque semaine de l\'ann&eacute;e. Cette semaine la citation utilis&eacute;e sera celle de la semaine '. date('W') .'. Attention, si vous modifiez une citation d&eacute;j&agrave; en place, d\'&eacute;viter les r&eacute;p&eacute;titions de citations du fait d\'un &eacute;ventuel d&eacute;calage. Toutes les citations plac&eacute;es apr&egrave;s la semaine 52 seront ignor&eacute;es.',
+  );
+  $form['save'] = array(
+    '#type' => 'submit',
+    '#value' => t('Save'),
+  );
+  return $form;
+}
+
+function cjdru_hooks_week_citations_form_submit(&$form, $form_state) {
+  variable_set('cjdru_week_citations', $form['#post']['citations']);
+  drupal_set_message('Les citations de la semaine ont été enregistrées.');
+}
+
+
+/**
+* Implementation of hook_user().
+*/
+
+// Add an anchor to be able to link directly on "Demande d'abonnement" fieldset.
+
+function cjdru_hooks_user($op, &$edit, &$account, $category = NULL) {
+  switch ($op) {
+    case 'update' :
+      /*if (db_fetch_object(db_query("SELECT uid FROM {user_external_picture} WHERE uid = '%d'", array($account->uid)))){
+        db_query("UPDATE {user_external_picture} SET url = '%s' WHERE uid = '%d'", array(check_url($edit['picture_external']), $account->uid));
+      }else{
+        db_query("INSERT INTO {user_external_picture} (url, uid) VALUES ('%d', '%s')", array(check_url($edit['picture_external']), $account->uid));
+      }*/
+      break;
+    case 'validate' :
+      // Validate the link.
+      /*if (strlen($edit['picture_external']) > 0){
+        if (cjdru_hooks_validate_url(trim($edit['picture_external'])) == FALSE) {
+          form_set_error('picture_external', t('Not a valid URL.'));
+        }
+      }*/
+      break;
+    case 'view' :
+      unset($account->content['user_picture']);
+      unset($account->content['summary']);
+      $account->content['Informations personnelles']['#weight'] = -10;
+      $account->content[utf8_encode('Intérêts au club')]['#weight'] = -9;
+      unset($account->content['user_titles']);
+      unset($account->content['privatemsg_send_new_message']);
+      if (strlen($account->profile_site) > 0){
+        if (substr($account->profile_site, 0, 7) != "http://"){
+          $path = "http://".$account->profile_site;
+        }else{
+          $path = $account->profile_site;
+        }
+        $account->content['Informations personnelles']['profile_site']['#value'] = '<a href="'.$path.'" target="_blank">'.$path.'</a>';
+      }
+      if (strlen($account->profile_im) > 0){
+        global $theme_key;
+        $account->content['Informations personnelles']['profile_im']['#value'] = theme('textimage_image', 'IM_'.$theme_key, $account->profile_im, array(), 'jpeg', 'Messagerie instantanée', utf8_encode("Les informations de messagerie instantanée apparaissent sous forme d'image afin d'empêcher les adresses fournies d'être recoltées par des robots peu scrupuleux."));
+      }
+      break;
+  }
+}
+
+function cjdru_hooks_form_alter(&$form, $form_state, $form_id) {
+  global $user;
+  //print '<!--'.$form_id.'-->';
+  //Masque les fieldsets pas nécessaires
+  if (isset($form['privatemsg']['format'])){
+    $form['privatemsg']['format']['#attributes'] = array('class' => 'fieldset-hidden');
+  }
+  if (!array_key_exists(6, $user->roles) || $user->uid!=1){
+    if (isset($form['taxonomy'])){
+      $form['taxonomy']['#prefix'] = '<div class="fieldset-hidden">';
+      $form['taxonomy']['#suffix'] = '</div>';
+    }
+  }
+  if (isset($form['taxonomy']['3'])){
+    $form['taxonomy']['3']['#prefix'] = '<div class="fieldset-hidden">';
+    $form['taxonomy']['3']['#suffix'] = '</div>';
+  }
+  if (isset($form['body_field']['teaser_include'])){
+    $form['body_field']['teaser_include']['#prefix'] = '<div class="teaser-checkbox fieldset-hidden">';
+  }
+  if (isset($form['body_field']['format'])){
+    $form['body_field']['body']['#weight'] = 0;
+    $form['body_field']['format']['#attributes'] = array('class' => 'fieldset-hidden');
+  }
+  if (isset($form['comment_filter']['format'])){
+    $form['comment_filter']['comment']['#title'] = t('Body');
+    $form['comment_filter']['comment']['#weight'] = -1;
+    $form['comment_filter']['format']['#attributes'] = array('class' => 'fieldset-hidden');
+  }  
+  
+  //Formate le formulaire de réponse
+  if ($form_id == 'comment_form'){
+    $form['_author']['#prefix'] = '<div class="fieldset-hidden">';
+    $form['_author']['#suffix'] = '</div>';
+    $node = node_load($form['nid']['#value']);
+    if (array_key_exists(7, $node->taxonomy)){
+      //Get the user id by checking if we edit or create a comment
+      if ($form['uid']['#value'] > 0){
+        $current_user = $form['uid']['#value'];
+      }
+      else {
+        $current_user = $user->uid;
+      }
+      $form['#submit'][] = 'cjdru_hooks_attendance_submit';
+      $wid = date('W', $node->created) + 2; // Week ID = node creation week + 1 because it's created each saturday night.
+      if ($wid >= 53) { $wid = 1; }
+      $current_time = time() - (30 * 24 * 60 * 60); // Timestamp d'il y a 30 jours en arrière pour filtrer les parties de l'année passée.
+      $games_query = db_query('SELECT * FROM {cjdru_week_games} WHERE wid=%d AND created >= %d ORDER BY eid ASC', $wid, $current_time);
+      $mygames_query = db_query('SELECT * FROM {cjdru_week_games} WHERE wid=%d AND uid=%d AND created >= %d', $wid, $current_user, $current_time);
+      $myattendance_query = db_query('SELECT * FROM {cjdru_week_attendances} WHERE wid=%d AND uid=%d AND created >= %d', $wid, $current_user, $current_time);
+      $mygames = db_fetch_object($mygames_query);
+      $myattendance = db_fetch_object($myattendance_query);
+      
+      $form['weekoptions'] = array(
+        '#type' => 'fieldset',
+        '#title' => t(utf8_encode('Présence au club')),
+        '#weight' => 1,
+        '#collapsible' => TRUE,
+        '#collapsed' => FALSE,
+      );
+      $form['weekoptions']['attendance'] = array(
+        '#type' => 'radios',
+        '#title' => t(utf8_encode('Ce soir là, je serai')),
+        '#options' => array(
+          0 => t(utf8_encode('Absent')),
+          1 => t(utf8_encode('Présent')),
+          2 => t(utf8_encode('Je ne sais pas, j\'arriverai peut être tard ... ou pas')),
+        ),
+        '#required' => TRUE,
+        '#default_value' => $myattendance->attendance,
+      );
+      $form['weekoptions']['mygames'] = array(
+        '#tree' => TRUE,
+        '#prefix' => '<div id="mygames">',
+        '#suffix' => '</div>',
+      );
+      
+      $mygames = unserialize($mygames->games);
+      if (isset($form_state['games_count'])) {
+        $games_count = $form_state['games_count'];
+      }
+      else {
+        $games_count = max(1, count($mygames));
+      }
+      for ($i=0; $i<$games_count; $i++){
+        if ($i == 0) {
+          $form['weekoptions']['mygames']['game_'. $i] = array(
+            '#type' => 'textfield',
+            '#title' => t(utf8_encode('Je propose la ou les parties suivantes')),
+            '#value' => $mygames['game_'. $i],
+          );
+        }
+        else {
+          if (strlen($mygames['game_'. $i]) == 0){
+            $form['weekoptions']['mygames']['game_'. $i] = array(
+              '#type' => 'hidden',
+              '#value' => '',
+            );
+          }
+          else {
+            $form['weekoptions']['mygames']['game_'. $i] = array(
+              '#type' => 'textfield',
+              '#value' => $mygames['game_'. $i],
+            );
+          }
+        }
+      }
+      $form['weekoptions']['add_game'] = array(
+        '#type' => 'button',
+        '#value' => 'Proposer une autre partie',
+        '#prefix' => '<div class="form-item"><div class="description">Supprimer le contenu du champ d\'une partie annonc&eacute;e supprime la partie d&eacute;finitivement et d&eacute;sinscrit automatiquement tous les membres inscrits &agrave; celle-ci.</div></div>',
+        '#submit' => array('cjdru_hooks_weekoptions_add_more_submit'),
+        '#ahah' => array(
+          'path' => 'weekoptions/addmore',
+          'wrapper' => 'mygames',
+          'method' => 'append',
+          'effect' => 'none'
+        ),
+      );
+      $items = array(0 => 'Aucun');
+      while($games = db_fetch_object($games_query)){
+        $game_user = user_load($games->uid);
+        $current_games = unserialize($games->games);
+        foreach($current_games as $key => $value){
+          if (strlen($value) > 0 && $games->uid != $current_user){
+            $items[$game_user->name][$games->uid .'-'. $key] = $value;
+          }
+        }
+      }
+      if (count($items) == 1){
+        $form['weekoptions']['nogames'] = array(
+          '#value' => utf8_encode('<div style="padding-top:10px; clear:both;"><strong>Pas de parties annoncées pour le moment.<br>Repasse plus tard dans la semaine pour voir si des MJs ont annoncé quelque chose.</strong></div>'),
+        );
+      }
+      else {
+        $chosenones = unserialize($myattendance->games);
+        $form['weekoptions']['choice1'] = array(
+          '#type' => 'select',
+          '#title' => 'Premier choix',
+          '#options' => $items,
+          '#prefix' => '<div style="padding-top:10px; clear:both;">',
+          '#default_value' => $chosenones[0],
+        );
+        $form['weekoptions']['choice2'] = array(
+          '#type' => 'select',
+          '#title' => 'Second choix',
+          '#options' => $items,
+          '#suffix' => '</div>',
+          '#default_value' => $chosenones[1],
+        );
+      }
+      $form['weekoptions']['uid'] = array(
+        '#type' => 'hidden',
+        '#value' => $current_user,
+      );
+      $form['weekoptions']['wid'] = array(
+        '#type' => 'hidden',
+        '#value' => $wid,
+      );
+    }
+    $form['attachments']['#weight'] = 2;
+  }
+  
+  //Supprime les tags des messages privés
+  if ($form_id == 'privatemsg_filter_form'){
+    unset($form['tags']);
+  }
+  
+  //Formate le bloc de recherche
+  if ($form_id == 'search_block_form'){
+    $form['submit']['#value'] = '';
+  }
+  
+  /*
+  //Ajoute la preview des post lors de l'ajout d'un commentaire
+  if ($form_id == 'comment_form'){
+    $last_post = advanced_forum_last_post_in_topic($form['nid']['#value']);
+    $form['previous_posts'] = array(
+      '#title' => 'Revue du sujet',
+      '#type' => 'fieldset',
+      '#collapsible' => TRUE,
+      '#collapsed' => FALSE,
+      '#value' => '<iframe src="'.base_path().'preview/'.$form['nid']['#value'].'#comment-'.$last_post.'" id="last_post_view"></iframe>',
+      '#weight' => 90,
+      '#attributes' => array('class' => 'fieldset-preview')
+    );
+  }*/
+  
+  
+  
+  if ($form_id == 'user_profile_form'){
+    /*$external_picture = db_fetch_object(db_query("SELECT url FROM {user_external_picture} WHERE uid = '%d'", array($form['#uid'])))->url;
+    $form['picture']['picture_external'] = array(
+      '#type' => 'textfield',
+      '#title' => utf8_encode("Lier le portrait à partir d'un autre site"),
+      '#default_value' => $external_picture,
+    );
+    if (strlen($external_picture) > 0){
+      $form['picture']['current_picture']['#value'] = '<div class="picture"><a href="'.base_path().'users/'.drupal_strtolower($form['_account']['#value']->name).'"  title="Voir le profil utilisateur"><img src="'.$external_picture.'"  style="width:150px;max-height:200px;" alt="Portrait de '.$form['_account']['#value']->name.'" title="Voir le profil utilisateur" /></a></div>';
+      unset($form['picture']['picture_delete']);
+    }*/
+  }
+}
+
+/**
+ * Submit handler to add more choices to a week options form. This handler is used when
+ * javascript is not available. It makes changes to the form state and the
+ * entire form is rebuilt during the page reload.
+ */
+function cjdru_hooks_weekoptions_add_more_submit($form, &$form_state) {
+  // Set the form to rebuild and run submit handlers.
+  unset($form_state['submit_handlers']);
+  form_execute_handlers('submit', $form, $form_state);
+  $quicktabs = $form_state['values'];
+  $form_state['rebuild'] = TRUE;  
+
+  // Make the changes we want to the form state.
+  if ($form_state['values']['add_game']) {
+    $form_state['games_count'] = count($form_state['values']['games_count']) + 1;
+  }
+  
+  return $quicktabs;
+}
+
+/* Submit handler for the ahah version of the previous function
+*/
+function cjdru_hooks_weekoptions_add_more() {
+  include_once 'modules/node/node.pages.inc';
+  $form_state = array('storage' => NULL, 'submitted' => FALSE);
+  $form_build_id = $_POST['form_build_id'];
+  // Get the form from the cache.
+  $form = form_get_cache($form_build_id, $form_state);
+  $args = $form['#parameters'];
+  $form_id = array_shift($args);
+  
+  // We will run some of the submit handlers so we need to disable redirecting.
+  $form['#redirect'] = FALSE;
+  // We need to process the form, prepare for that by setting a few internals
+  // variables.
+  $form['#post'] = $_POST;
+  $form['#programmed'] = FALSE;
+  $form_state['post'] = $_POST;
+  $last_object = count($form['weekoptions']['mygames']) - 4;
+  $form['comment_filter']['comment']['#required'] = FALSE;
+  $form['weekoptions']['attendance']['#required'] = FALSE;
+  // Build, validate and if possible, submit the form.
+  drupal_process_form($form_id, $form, $form_state);
+  // This call recreates the form relying solely on the form_state that the
+  // drupal_process_form set up.
+  $form = drupal_rebuild_form($form_id, $form_state, $args, $form_build_id);
+  
+  // Render the new output.
+  //$more_form = $form['weekoptions']['mygames']['game_'.$last_object];
+  $more_form = array(
+    '#type' => 'textfield',
+  );
+  $more_form['#name'] = 'mygames[game_'. ($last_object+1) .']';
+  $more_form['#id'] = 'edit-mygames-game-'. ($last_object+1);
+  //unset($more_form['#title']);
+  unset($more_form['#prefix'], $more_form['#suffix']); // Prevent duplicate wrappers.
+  $output = theme('status_messages') . drupal_render($more_form);
+
+  drupal_json(array('status' => TRUE, 'data' => $output));
+}
+
+function cjdru_hooks_attendance_submit(&$form, &$form_state){
+  $current_time = time() - (30 * 24 * 60 * 60); // Timestamp d'il y a 30 jours en arrière pour filtrer les parties de l'année passée.
+  
+  //Check if user is already attendee and store his choices
+  $query = db_query('SELECT eid FROM {cjdru_week_attendances} WHERE wid=%d AND uid=%d AND created >= %d', $form_state['clicked_button']['#post']['wid'], $form_state['clicked_button']['#post']['uid'], $current_time);
+  $results = db_fetch_object($query);
+  if (isset($form_state['clicked_button']['#post']['choice1'])){
+    $games = serialize(array($form_state['clicked_button']['#post']['choice1'], $form_state['clicked_button']['#post']['choice2']));
+  }
+  else {
+    $games = serialize(array());
+  }
+  if ($results->eid > 0){
+    db_query('UPDATE {cjdru_week_attendances} SET attendance=%d, games="%s" WHERE eid=%d', $form_state['clicked_button']['#post']['attendance'], $games, $results->eid);
+  }
+  else {
+    db_query('INSERT INTO {cjdru_week_attendances} (wid, uid, attendance, games, created) VALUES (%d, %d, %d, "%s", %d)', $form_state['clicked_button']['#post']['wid'], $form_state['clicked_button']['#post']['uid'], $form_state['clicked_button']['#post']['attendance'], $games, time());
+  }
+ 
+  //Check if user is already proposing games
+  if (count($form_state['clicked_button']['#post']['mygames']) == 1 && strlen($form_state['clicked_button']['#post']['mygames']['game_0']) == 0){
+    //Pas de partie proposée
+  }
+  else {
+    $query = db_query('SELECT eid FROM {cjdru_week_games} WHERE wid=%d AND uid=%d AND created >= %d', $form_state['clicked_button']['#post']['wid'], $form_state['clicked_button']['#post']['uid'], $current_time);
+    $results = db_fetch_object($query);
+    $games = serialize($form_state['clicked_button']['#post']['mygames']);
+    if ($results->eid > 0){
+      db_query('UPDATE {cjdru_week_games} SET games = "%s" WHERE eid=%d', $games, $results->eid);
+    }
+    else {
+      db_query('INSERT INTO {cjdru_week_games} (wid, uid, games, created) VALUES (%d, %d, "%s", %d)', $form_state['clicked_button']['#post']['wid'], $form_state['clicked_button']['#post']['uid'], $games, time());
+    }
+  }
+}
+
+function cjdru_hooks_preprocess_author_pane(&$vars){
+ $vars['joined'] .= '<br />Membre depuis :<br />'.$vars['joined_ago'];
+ //unset($vars['account_name']);
+ /*$vars['picture'] = '<div class="picture"><a href="'.base_path().'users/'.drupal_strtolower($vars['account']->name).'"  title="Voir le profil utilisateur" class="active"><img src="'.$vars['account']->picture_external.'" alt="Portrait de '.$vars['account']->name.'" title="Voir le profil utilisateur" style="width:150px;max-height:200px;" /></a></div>';*/
+ return $vars;
+}
+
+function cjdru_hooks_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
+  switch ($op) {
+    case 'view' :
+      switch ($node->type){
+        case 'evenement' :
+          if ($node->signup_close_signup_limit == 0){
+            $places = '-';
+          }
+          else {
+            $places = ($node->signup_close_signup_limit - $node->signup_total);
+          }
+          $node->content['field_mj_auteur']['#prefix'] = '<div class="event-infos">';
+          $node->content['field_moment']['#suffix'] = '<div class="field">
+    <div class="field-label-inline-first">Places disponibles:&nbsp;</div>'. $places .'
+  </div>
+</div>';
+        break;
+        case 'forum' :
+          global $user;
+          $wid = date('W');
+          // A tester
+          if (date('N') > 5){
+            $wid = date('W') + 2;
+          }
+          else {
+            $wid = date('W') + 1;
+          }
+          if ($wid >= 53) { $wid = 1; }
+          // Fin A tester
+          $current_time = time() - (30 * 24 * 60 * 60); // Timestamp d'il y a 30 jours en arrière pour filtrer les parties de l'année passée.
+          $attendances_query = db_query('SELECT COUNT(eid) as nb FROM {cjdru_week_attendances} WHERE wid=%d AND created >= %d', $wid, $current_time);
+          $attendances = db_fetch_object($attendances_query);
+          if ($attendances->nb > 0 && array_key_exists(7, $node->taxonomy)){            
+            $node->content['body']['#value'] .= cjdru_hooks_weekoptions(FALSE, $node);
+          }
+          break;
+      }
+      break;
+  }
+}
+
+function cjdru_hooks_weekoptions($is_block, $node = null){
+  $current_time = time() - (30 * 24 * 60 * 60); // Timestamp d'il y a 30 jours en arrière pour filtrer les parties de l'année passée.
+  
+  if ($is_block){
+    $output = '';
+    if (date('N') > 5){
+      $wid = date('W') + 4;
+    }
+    else {
+      $wid = date('W') + 3;
+    }
+    if ($wid >= 53) { $wid = 1; }
+    
+    //Proposed games summary
+    $attendances_query = db_query('SELECT * FROM {cjdru_week_attendances} WHERE wid=%d AND created >= %d ORDER BY eid ASC', $wid, $current_time);
+    $attendances = array();
+    $choices = array();
+    while($attendance = db_fetch_object($attendances_query)){
+      $current_user = user_load($attendance->uid);
+      $attendances[$attendance->attendance][] = $current_user->name;
+      $choice = unserialize($attendance->games);
+      $choices[0][$choice[0]][] = $current_user->name;
+      $choices[1][$choice[1]][] = $current_user->name;
+    }
+    
+    $rows = array();
+    $games_query = db_query('SELECT * FROM {cjdru_week_games} WHERE wid=%d AND created >= %d ORDER BY eid ASC', $wid, $current_time);            
+    while($games = db_fetch_object($games_query)){
+      $game = unserialize($games->games);
+      foreach($game as $key => $value){
+        if (strlen($value) > 0){
+          $current_user = user_load($games->uid);
+          $output .= '<font style="font-size:12px;"><strong><font style="color:#ffffff;">'. $value .'</font></strong><br><font style="font-size:10px;">&nbsp;&nbsp;&nbsp;Par '. $current_user->name .', '. (count($choices[0][$games->uid .'-'. $key]) + count($choices[1][$games->uid .'-'. $key])) .' inscrit';
+          if ((count($choices[0][$games->uid .'-'. $key]) + count($choices[1][$games->uid .'-'. $key])) != 1){
+            $output .= 's';
+          }
+          $output .= '.<br>';
+        }
+      }
+    }
+    $output .= '</font>';
+    
+    //Attendance summary
+    $games_query = db_query('SELECT COUNT(eid) as nb FROM {cjdru_week_games} WHERE wid=%d AND created >= %d ORDER BY eid ASC', $wid, $current_time);
+    $games = db_fetch_object($games_query);
+    $output .= '<br><font style="font-size:10px;">'. $games->nb .' MJ';
+    if ($games->nb !=1){
+        $output .= 's';
+    }
+    $output .= ' et ';
+     if (count($attendances[2]) > 0 && (count($attendances[1]) + count($attendances[2]) - $games->nb) > 0){
+      $output .= 'entre '. max(0, count($attendances[1]) - $games->nb) .' et '. max(0, count($attendances[1]) + count($attendances[2]) - $games->nb) .' joueurs potentiels';
+    }
+    else {
+      if (count($attendances[1]) - $games->nb != 1){
+        $output .= (count($attendances[1]) - $games->nb) .' joueurs potentiels';
+      }
+      else {
+        $output .= max(0, count($attendances[1]) - $games->nb) .' joueur potentiel';
+      }
+    }
+    if ($games->nb != 0) {
+      if ((count($attendances[1]) + count($attendances[2])) / $games->nb > 5){
+        $output .= '.<br><br><font style="color:#ff0000;"><strong>Attention plus de 5 joueurs par table !<br>Des MJ suppl&eacute;mentaires sont les bienvenus !</strong></font>';
+      }
+    }
+    $output .= '.</font><br><br>';
+  }
+  else {
+    $output = '<strong>R&eacute;capitulatif des pr&eacute;sences et parties annonc&eacute;es pour le moment</strong><br>';
+    if (isset($node->created)){
+      $wid = date('W', $node->created) + 2;
+    }
+    else {
+      $wid = date('W') + 1;
+    }
+    if ($wid >= 53) { $wid = 1; }
+            
+    //Attendance table
+    $rows = array();
+    $attendances_query = db_query('SELECT * FROM {cjdru_week_attendances} WHERE wid=%d AND created >= %d ORDER BY eid ASC', $wid, $current_time);
+    $attendances = array();
+    $choices = array();
+    while($attendance = db_fetch_object($attendances_query)){
+      $current_user = user_load($attendance->uid);
+      $attendances[$attendance->attendance][] = $current_user->name;
+      $choice = unserialize($attendance->games);
+      $choices[0][$choice[0]][] = $current_user->name;
+      $choices[1][$choice[1]][] = $current_user->name;
+    }
+    for($i=0; $i<max(count($attendances[0]), count($attendances[1]), count($attendances[2])); $i++){
+      $row = array();
+      if (count($attendances[0]) > 0){
+        if (isset($attendances[0][$i])){
+          $row[] = $attendances[0][$i];
+        }
+        else {
+          $row[] = '&nbsp;';
+        }
+      }
+      if (count($attendances[1]) > 0){
+        if (isset($attendances[1][$i])){
+          $row[] = $attendances[1][$i];
+        }
+        else {
+          $row[] = '&nbsp;';
+        }
+      }
+      if (count($attendances[2]) > 0){
+        if (isset($attendances[2][$i])){
+          $row[] = $attendances[2][$i];
+        }
+        else {
+          $row[] = '&nbsp;';
+        }
+      }
+      $rows[] = $row;
+    }  
+    $headers = array();
+    if (count($attendances[0]) > 0){
+      $headers[] = 'Absents ('. count($attendances[0]) .')';
+    }
+    if (count($attendances[1]) > 0){
+      $headers[] = 'Pr&eacute;sents ('. count($attendances[1]) .')';
+    }
+    if (count($attendances[2]) > 0){
+      $headers[] = 'Incertains ('. count($attendances[2]) .')';
+    }
+    $output .= theme('table', $headers, $rows);
+    $games_query = db_query('SELECT COUNT(eid) as nb FROM {cjdru_week_games} WHERE wid=%d AND created >= %d ORDER BY eid ASC', $wid, $current_time);
+    $games = db_fetch_object($games_query);
+    $output .= '<br>Soit ';
+    if (count($attendances[2]) > 0){
+      $output .= 'entre '. count($attendances[1]) .' et '. (count($attendances[1]) + count($attendances[2])) .' personnes';
+    }
+    else {
+      if (count($attendances[1]) != 1){
+        $output .= count($attendances[1]) .' personnes';
+      }
+      else {
+        $output .= count($attendances[1]) .' personne';
+      }
+    }
+    $output .= ' dont '. $games->nb .' MJ';
+    if ($games->nb !=1){
+        $output .= 's';
+    }
+    $output .= ' et ';
+     if (count($attendances[2]) > 0 && (count($attendances[1]) + count($attendances[2]) - $games->nb) > 0){
+      $output .= 'entre '. max(0, count($attendances[1]) - $games->nb) .' et '. max(0, count($attendances[1]) + count($attendances[2]) - $games->nb) .' joueurs potentiels';
+    }
+    else {
+      if (count($attendances[1]) - $games->nb != 1){
+        $output .= (count($attendances[1]) - $games->nb) .' joueurs potentiels';
+      }
+      else {
+        $output .= max(0, count($attendances[1]) - $games->nb) .' joueur potentiel';
+      }
+    }
+    if ($games->nb != 0) {
+      if ((count($attendances[1]) + count($attendances[2])) / $games->nb > 5){
+        $output .= '. <br><font style="color:#ff0000;"><strong>Attention dans la configuration actuelle il y aura plus de 5 joueurs par table. Des MJ suppl&eacute;mentaires sont les bienvenus !</strong></font>';
+      }
+    }
+    $output .= '.<br><br>';
+    
+    //Games table
+    $headers = array();
+    $rows = array();
+    $detail = array();
+    $games_query = db_query('SELECT * FROM {cjdru_week_games} WHERE wid=%d AND created >= %d ORDER BY eid ASC', $wid, $current_time);            
+    while($games = db_fetch_object($games_query)){
+      $game = unserialize($games->games);
+      foreach($game as $key => $value){
+        if (strlen($value) > 0){
+          $current_user = user_load($games->uid);
+          $headers[] = array(
+            'data' => '<font style="color:#ffffff;">'. $value .'</font><br>'. $current_user->name,
+            'colspan' => 2,
+          );
+          $detail[] = array($games->uid .'-'. $key);
+        }
+      }
+    }
+    $row = array();
+    for($i=0; $i<count($detail); $i++){
+      $row[] = '<strong>1er choix</strong>';
+      $row[] = '<strong>2&egrave;me choix</strong>';
+    }
+    $rows[] = $row;
+    $row = array();
+    for($i=0; $i<count($detail); $i++){
+      if (count($choices[0][$detail[$i][0]]) > 0){
+        $row[] = implode($choices[0][$detail[$i][0]], '<br>');
+      }
+      else {
+        $row[] = '&nbsp;';
+      }
+      if (count($choices[1][$detail[$i][0]])){
+        $row[] = implode($choices[1][$detail[$i][0]], '<br>');
+      }
+      else {
+        $row[] = '&nbsp;';
+      }
+    }
+    $rows[] = $row;
+    $output .= theme('table', $headers, $rows);
+  }
+  return $output;
+}
+
+/*
+function cjdru_hooks_validate_url($text) {
+
+  $allowed_protocols = variable_get('filter_allowed_protocols', array('http', 'https', 'ftp', 'news', 'nntp', 'telnet', 'mailto', 'irc', 'ssh', 'sftp', 'webcal'));
+
+  $protocol = '(('. implode("|", $allowed_protocols) .'):\/\/)';
+  $authentication = '([a-z0-9]+(:[a-z0-9]+)?@)';
+  $domain = '(([a-z0-9]([a-z0-9\-_\[\]])*)(\.(([a-z0-9\-_\[\]])+\.)*('. LINK_DOMAINS .'|[a-z]{2}))?)';
+  $ipv4 = '([0-9]{1,3}(\.[0-9]{1,3}){3})';
+  $ipv6 = '([0-9a-fA-F]{1,4}(\:[0-9a-fA-F]{1,4}){7})';
+  $port = '(:([0-9]{1,5}))';
+  $ext = substr($text, -4);
+
+  // Pattern specific to eternal links.
+  $external_pattern = '/^'. $protocol .'?'. $authentication .'?('. $domain .'|'. $ipv4 .'|'. $ipv6 .' |localhost)'. $port .'?';
+
+  $directories = "(\/[a-z0-9_\-\.~+%=&,$'!():;*@\[\]]*)*";
+  // Yes, four backslashes == a single backslash.
+  $query = "(\/?\?([?a-z0-9+_|\-\.\/\\\\%=&,$'():;*@\[\]]*))";
+  $anchor = "(#[a-z0-9_\-\.~+%=&,$'():;*@\[\]]*)";
+
+  // The rest of the path for a standard URL.
+  $end = $directories .'?'. $query .'?'. $anchor .'?'.'$/i';
+
+  if (preg_match($external_pattern . $end, $text)) {
+    if ($ext == '.jpg' || $ext == '.jpeg' || $ext == '.gif' || $ext == '.png'){
+      return LINK_EXTERNAL;
+    }
+  }
+
+  return FALSE;
+}*/

@@ -1,0 +1,859 @@
+***********************************
+
+
+Pseudo : An
+Présences : 33
+Nombre de fois MJ : 4
+
+Jeux joués par ordre de préférence : {Campagne Shade=6, Shadowrun=3, Les ombres d'Esteren=3, Tenga=2, Reve de dragon=2, Shade=2, MDT=2, Donjon de Naheulbeuk=1, Cthulhu=1, Medfan=1, Plagues DK²=1, Midnight=1, Everyday is Halloween=1, INS/MV=1, Pendragon=1, MV=1}
+Ratio d'ouverture sur les jeux joués : 26.22%
+
+Maitres de jeu par ordre de préférence : {Magus=12, Chris=2, Romain=2, Erika=2, Saladdin=2, Gwenael=2, JbWysk=2, Yvan=1, Katzy=1, Nog=1, Binch=1, Joker=1}
+Ratio d'ouverture sur les maitres de jeux : 46.15%
+
+Collègues de jeu par ordre de préférence : {Nog=19, Mina=10, Chris=10, JbWysk=9, Lyanna=8, Katzy=5, Mao=3, Dal=3, Loup=3, Magus=3, Edwin=2, Micka=2, Elfe=2, Yvan=2, Darius=2, Jill=2, Freud=1, Jennifer=1, Haldahir=1, Joker=1, Vrasel=1, Saladdin=1, Zepierre=1, Delphine=1, Erika=1, François=1, Renaud=1}
+Ratio d'ouverture sur les collègues de jeux : 61.36%
+
+Jeux masterisés par ordre de préférence : {DK²=4}
+Joueurs masterisés par ordre de préférence : {Freud=3, Thorfin=2, Edwin=2, Jennifer=2, Romain=1, Margault=1, Katzy=1, Delphine=1, Binch=1, Satsu=1, Mao=1}
+Ratio d'ouverture sur les joueurs masterisés : 25.0%
+
+
+***********************************
+
+
+Pseudo : Axel
+Présences : 6
+Nombre de fois MJ : 0
+
+Jeux joués par ordre de préférence : {Campagne Pathfinder=2, Pathfinder=2, Vampire=1, Campagne DD=1}
+Ratio d'ouverture sur les jeux joués : 6.557%
+
+Maitres de jeu par ordre de préférence : {Yvan=4, Haldahir=1}
+Ratio d'ouverture sur les maitres de jeux : 7.692%
+
+Collègues de jeu par ordre de préférence : {Darius=5, Gwenael=5, Pauline=4, Elfe=4, Yvan=2, Davy=1, Olivier=1}
+Ratio d'ouverture sur les collègues de jeux : 15.90%
+
+
+
+***********************************
+
+
+Pseudo : Binch
+Présences : 7
+Nombre de fois MJ : 1
+
+Jeux joués par ordre de préférence : {SOS Fantome=1, Scion=1, Loup solitaire=1, DK²=1, Shade=1, Les ombres d'Esteren=1}
+Ratio d'ouverture sur les jeux joués : 9.836%
+
+Maitres de jeu par ordre de préférence : {Vrasel=1, Erika=1, Saladdin=1, An=1, Magus=1, Gwenael=1}
+Ratio d'ouverture sur les maitres de jeux : 23.07%
+
+Collègues de jeu par ordre de préférence : {Hecate=3, Mao=3, Katzy=2, Edwin=2, Vrasel=1, Nasher=1, Micka=1, Delphine=1, Romain=1, Nighteye=1, Elfe=1, Davy=1, Renaud=1, Satsu=1}
+Ratio d'ouverture sur les collègues de jeux : 31.81%
+
+Jeux masterisés par ordre de préférence : {Plagues DK²=1}
+Joueurs masterisés par ordre de préférence : {An=1, Mina=1, Mao=1}
+Ratio d'ouverture sur les joueurs masterisés : 6.818%
+
+
+***********************************
+
+
+Pseudo : Chris
+Présences : 47
+Nombre de fois MJ : 18
+
+Jeux joués par ordre de préférence : {Campagne Shade=7, Shade=5, Shadowrun=4, Greyhawk=2, Prophecy=1, Midnight=1, SOS Fantome=1, Deathwatch=1, Humanydyne=1, Loup solitaire=1, Bloodlust=1, Mahamot=1, Les ombres d'Esteren=1, INS/MV=1, The last year=1}
+Ratio d'ouverture sur les jeux joués : 24.59%
+
+Maitres de jeu par ordre de préférence : {Magus=17, Grandalf=3, Vrasel=2, Saladdin=2, Elfe=1, Nog=1, Delphine=1, JbWysk=1, Mao=1}
+Ratio d'ouverture sur les maitres de jeux : 34.61%
+
+Collègues de jeu par ordre de préférence : {JbWysk=15, Nog=13, Lyanna=11, An=10, Magus=9, Mao=7, Katzy=3, Micka=3, Saladdin=3, Edwin=2, Jennifer=2, Mina=2, Nasher=2, Hecate=2, Delphine=2, Margault=2, Renaud=2, Satsu=2, Freud=1, Haldahir=1, Romain=1, Elfe=1, Joker=1, Vrasel=1, Loup=1, Darius=1, Jill=1, Grandalf=1}
+Ratio d'ouverture sur les collègues de jeux : 63.63%
+
+Jeux masterisés par ordre de préférence : {Pendragon=6, Hellywood=4, Cthulhu=2, Les masques de Nyarlathotep=2, Paranoia=2, Subabysse=1, INS/MV=1}
+Joueurs masterisés par ordre de préférence : {Magus=14, Edwin=6, Mao=6, Lyanna=5, Elfe=5, JbWysk=4, Nasher=4, Hecate=4, Erika=4, Nog=3, Dal=3, Saladdin=3, Katzy=2, Micka=2, Vrasel=2, Loup=2, An=2, Renaud=2, Jennifer=1, Romain=1, Nighteye=1, Jill=1, Olivier=1}
+Ratio d'ouverture sur les joueurs masterisés : 52.27%
+
+
+***********************************
+
+
+Pseudo : Dal
+Présences : 18
+Nombre de fois MJ : 0
+
+Jeux joués par ordre de préférence : {Deathwatch=5, Hellywood=2, Everyday is Halloween=2, Loup solitaire=2, Reve de dragon=2, Plateau=2, DK²=1, Au clair de l'obscure=1, Pendragon=1}
+Ratio d'ouverture sur les jeux joués : 14.75%
+
+Maitres de jeu par ordre de préférence : {Vrasel=6, Chris=3, MJ_PLATEAU=2, Katzy=2, Saladdin=2, Haldahir=1, Romain=1}
+Ratio d'ouverture sur les maitres de jeux : 26.92%
+
+Collègues de jeu par ordre de préférence : {Nasher=7, Hecate=6, Edwin=5, Mao=5, Vrasel=5, Romain=3, Joker=3, Loup=3, An=3, Magus=3, Lyanna=2, Katzy=2, JbWysk=2, Nog=1, Jennifer=1, Thorfin=1, Nighteye=1, Saladdin=1, Zepierre=1, Delphine=1, Jill=1, Erika=1, François=1, Grandalf=1, Olivier=1}
+Ratio d'ouverture sur les collègues de jeux : 56.81%
+
+
+
+***********************************
+
+
+Pseudo : Darius
+Présences : 15
+Nombre de fois MJ : 0
+
+Jeux joués par ordre de préférence : {Pathfinder=3, Campagne Pathfinder=2, Vampire=2, MDT=2, Sorcellerie=1, Ragnarok=1, Greyhawk=1, Agone=1, Campagne DD=1, Eleckasë=1}
+Ratio d'ouverture sur les jeux joués : 16.39%
+
+Maitres de jeu par ordre de préférence : {Yvan=5, Gwenael=5, Vrasel=1, Haldahir=1, Margault=1, Grandalf=1}
+Ratio d'ouverture sur les maitres de jeux : 23.07%
+
+Collègues de jeu par ordre de préférence : {Pauline=7, Yvan=7, Gwenael=6, Elfe=5, Mao=5, Axel=5, Nog=2, Mina=2, Nasher=2, An=2, Delphine=2, Davy=2, Satsu=2, Katzy=1, Micka=1, Chris=1, Romain=1, JbWysk=1, Vrasel=1, Saladdin=1, Margault=1, Grandalf=1, Renaud=1}
+Ratio d'ouverture sur les collègues de jeux : 52.27%
+
+
+
+***********************************
+
+
+Pseudo : Davy
+Présences : 4
+Nombre de fois MJ : 0
+
+Jeux joués par ordre de préférence : {Campagne Pathfinder=1, Post apo=1, Pathfinder=1, Les ombres d'Esteren=1}
+Ratio d'ouverture sur les jeux joués : 6.557%
+
+Maitres de jeu par ordre de préférence : {Yvan=2, Erika=1, Grandalf=1}
+Ratio d'ouverture sur les maitres de jeux : 11.53%
+
+Collègues de jeu par ordre de préférence : {Darius=2, Elfe=2, Gwenael=2, Pauline=1, Yvan=1, Micka=1, Delphine=1, Binch=1, Hecate=1, Axel=1, Mao=1}
+Ratio d'ouverture sur les collègues de jeux : 25.0%
+
+
+
+***********************************
+
+
+Pseudo : Delphine
+Présences : 21
+Nombre de fois MJ : 2
+
+Jeux joués par ordre de préférence : {Donjon de Naheulbeuk=2, Les ombres d'Esteren=2, Prophecy=1, DK²=1, Ragnarok=1, Necropolis=1, Au clair de l'obscure=1, Agone=1, Capharnaum=1, Tremulus=1, Billet rouge=1, Shadowrun=1, Shade=1, MDT=1, Bloodlust=1, Plateau=1, INS/MV=1}
+Ratio d'ouverture sur les jeux joués : 27.86%
+
+Maitres de jeu par ordre de préférence : {Magus=2, Elfe=2, Erika=2, JbWysk=2, Joker=2, Vrasel=1, MJ_PLATEAU=1, Edwin=1, Saladdin=1, An=1, Gwenael=1, Margault=1, Grandalf=1}
+Ratio d'ouverture sur les maitres de jeux : 50.0%
+
+Collègues de jeu par ordre de préférence : {Mao=7, Romain=6, Loup=5, Katzy=3, Micka=3, Thorfin=3, JbWysk=3, Chris=2, Elfe=2, Joker=2, Vrasel=2, Saladdin=2, Darius=2, Erika=2, Lyanna=1, Nog=1, Freud=1, Gwenael=1, Binch=1, Nasher=1, Dal=1, Yvan=1, An=1, Jill=1, Margault=1, Davy=1, François=1, Grandalf=1, Renaud=1, Satsu=1}
+Ratio d'ouverture sur les collègues de jeux : 68.18%
+
+Jeux masterisés par ordre de préférence : {Mahamot=2}
+Joueurs masterisés par ordre de préférence : {Chris=1, Romain=1, Katzy=1, Edwin=1, Magus=1, Hecate=1, JbWysk=1}
+Ratio d'ouverture sur les joueurs masterisés : 15.90%
+
+
+***********************************
+
+
+Pseudo : Edwin
+Présences : 31
+Nombre de fois MJ : 4
+
+Jeux joués par ordre de préférence : {Plateau=5, Deathwatch=4, DK²=3, Loup solitaire=3, Les masques de Nyarlathotep=2, INS/MV=2, Pendragon=2, Cthulhu=1, Asgaard=1, Shadowrun=1, Paranoia=1, Shade=1, Mahamot=1}
+Ratio d'ouverture sur les jeux joués : 21.31%
+
+Maitres de jeu par ordre de préférence : {Vrasel=7, Chris=6, MJ_PLATEAU=5, Nog=2, An=2, Magus=1, Zepierre=1, Hecate=1, Delphine=1, Mao=1}
+Ratio d'ouverture sur les maitres de jeux : 38.46%
+
+Collègues de jeu par ordre de préférence : {Magus=10, Nasher=9, Lyanna=6, Romain=6, Mao=6, Jennifer=5, Vrasel=5, Dal=5, Nog=4, Freud=4, Elfe=4, Hecate=4, Katzy=3, Renaud=3, Binch=2, Chris=2, Thorfin=2, Loup=2, Saladdin=2, An=2, Jill=2, Micka=1, Nighteye=1, Zepierre=1, Erika=1, François=1}
+Ratio d'ouverture sur les collègues de jeux : 59.09%
+
+Jeux masterisés par ordre de préférence : {Necropolis=2, Dark Heresy=1, COPS=1}
+Joueurs masterisés par ordre de préférence : {Thorfin=3, Loup=2, Katzy=2, Joker=2, Vrasel=1, Romain=1, Nog=1, Erika=1, Freud=1, Delphine=1, Mao=1}
+Ratio d'ouverture sur les joueurs masterisés : 25.0%
+
+
+***********************************
+
+
+Pseudo : Elfe
+Présences : 26
+Nombre de fois MJ : 4
+
+Jeux joués par ordre de préférence : {Les ombres d'Esteren=4, Pendragon=4, Pathfinder=3, Campagne Pathfinder=2, Loup solitaire=2, Plateau=2, Explo[nar]rateurs=1, PSI*RUN=1, Paranoia=1, Midnight=1, INS/MV=1}
+Ratio d'ouverture sur les jeux joués : 18.03%
+
+Maitres de jeu par ordre de préférence : {Yvan=5, Chris=5, Erika=3, Vrasel=2, MJ_PLATEAU=2, Saladdin=2, Nog=1, Magus=1, JbWysk=1}
+Ratio d'ouverture sur les maitres de jeux : 34.61%
+
+Collègues de jeu par ordre de préférence : {Erika=7, Magus=6, Katzy=5, Gwenael=5, Darius=5, Pauline=4, Lyanna=4, Edwin=4, Nasher=4, Loup=4, Axel=4, Micka=3, Romain=3, Mao=3, Nog=2, Jennifer=2, An=2, Delphine=2, Hecate=2, Davy=2, Renaud=2, Binch=1, Chris=1, JbWysk=1, Saladdin=1, Jill=1, François=1}
+Ratio d'ouverture sur les collègues de jeux : 61.36%
+
+Jeux masterisés par ordre de préférence : {Bloodlust=2, Capharnaum=1, Mississippi=1}
+Joueurs masterisés par ordre de préférence : {Thorfin=2, Saladdin=2, Erika=2, Magus=2, Delphine=2, Chris=1, Lyanna=1, Loup=1, Romain=1, JbWysk=1}
+Ratio d'ouverture sur les joueurs masterisés : 22.72%
+
+
+***********************************
+
+
+Pseudo : Erika
+Présences : 20
+Nombre de fois MJ : 6
+
+Jeux joués par ordre de préférence : {Paranoia=2, Explo[nar]rateurs=1, Cthulhu=1, Midnight=1, Necropolis=1, Everyday is Halloween=1, Capharnaum=1, PSI*RUN=1, Loup solitaire=1, Bloodlust=1, Les ombres d'Esteren=1, Plateau=1, Pendragon=1}
+Ratio d'ouverture sur les jeux joués : 21.31%
+
+Maitres de jeu par ordre de préférence : {Chris=4, Elfe=2, Saladdin=2, Vrasel=1, MJ_PLATEAU=1, Katzy=1, Edwin=1, Magus=1, JbWysk=1}
+Ratio d'ouverture sur les maitres de jeux : 34.61%
+
+Collègues de jeu par ordre de préférence : {Elfe=7, Nasher=5, Saladdin=4, Magus=4, Micka=3, Romain=3, Mao=3, Loup=3, Katzy=2, JbWysk=2, Delphine=2, François=2, Renaud=2, Lyanna=1, Edwin=1, Freud=1, Jennifer=1, Josk=1, Thorfin=1, Joker=1, Dal=1, An=1, Hecate=1}
+Ratio d'ouverture sur les collègues de jeux : 52.27%
+
+Jeux masterisés par ordre de préférence : {Les ombres d'Esteren=5, Nightprowler=1}
+Joueurs masterisés par ordre de préférence : {Elfe=3, Katzy=2, Nog=2, An=2, Delphine=2, Loup=1, Micka=1, Magus=1, Binch=1, Mina=1, Davy=1, François=1, Grandalf=1, Renaud=1, JbWysk=1, Mao=1}
+Ratio d'ouverture sur les joueurs masterisés : 36.36%
+
+
+***********************************
+
+
+Pseudo : François
+Présences : 6
+Nombre de fois MJ : 0
+
+Jeux joués par ordre de préférence : {Plateau=2, Nightprowler=1, Midnight=1, Au clair de l'obscure=1, MV=1}
+Ratio d'ouverture sur les jeux joués : 8.196%
+
+Maitres de jeu par ordre de préférence : {MJ_PLATEAU=2, Erika=1, Magus=1, JbWysk=1}
+Ratio d'ouverture sur les maitres de jeux : 15.38%
+
+Collègues de jeu par ordre de préférence : {Renaud=3, Jennifer=2, Erika=2, Nasher=1, Vrasel=1, Lyanna=1, Dal=1, Nog=1, Edwin=1, An=1, Micka=1, Magus=1, Hecate=1, Delphine=1, Josk=1, Romain=1, Elfe=1, Grandalf=1}
+Ratio d'ouverture sur les collègues de jeux : 40.90%
+
+
+
+***********************************
+
+
+Pseudo : Freud
+Présences : 10
+Nombre de fois MJ : 0
+
+Jeux joués par ordre de préférence : {DK²=4, Tremulus=1, Asgaard=1, Shadowrun=1, Midnight=1, Necropolis=1, Agone=1}
+Ratio d'ouverture sur les jeux joués : 11.47%
+
+Maitres de jeu par ordre de préférence : {An=3, Magus=2, Margault=1, Saladdin=1, Edwin=1, Hecate=1, Mao=1}
+Ratio d'ouverture sur les maitres de jeux : 26.92%
+
+Collègues de jeu par ordre de préférence : {Edwin=4, Katzy=3, Thorfin=3, Mao=3, Nog=2, Jennifer=2, Jill=2, Joker=2, Nasher=1, Vrasel=1, Loup=1, An=1, Delphine=1, Mina=1, Chris=1, Margault=1, Erika=1, Satsu=1}
+Ratio d'ouverture sur les collègues de jeux : 40.90%
+
+
+
+***********************************
+
+
+Pseudo : Grandalf
+Présences : 8
+Nombre de fois MJ : 4
+
+Jeux joués par ordre de préférence : {Nightprowler=1, Deathwatch=1, Shadowrun=1, Agone=1}
+Ratio d'ouverture sur les jeux joués : 6.557%
+
+Maitres de jeu par ordre de préférence : {Haldahir=1, Margault=1, Erika=1, Magus=1}
+Ratio d'ouverture sur les maitres de jeux : 15.38%
+
+Collègues de jeu par ordre de préférence : {Nasher=2, Mao=2, Vrasel=1, Lyanna=1, Dal=1, Micka=1, Delphine=1, Chris=1, Darius=1, François=1, Satsu=1, JbWysk=1}
+Ratio d'ouverture sur les collègues de jeux : 27.27%
+
+Jeux masterisés par ordre de préférence : {Greyhawk=2, Prophecy=1, Post apo=1}
+Joueurs masterisés par ordre de préférence : {Chris=3, Margault=2, Micka=2, Satsu=2, JbWysk=2, Mao=2, Yvan=1, Darius=1, Davy=1, Hecate=1, Delphine=1}
+Ratio d'ouverture sur les joueurs masterisés : 25.0%
+
+
+***********************************
+
+
+Pseudo : Gwenael
+Présences : 16
+Nombre de fois MJ : 7
+
+Jeux joués par ordre de préférence : {Pathfinder=3, Campagne Pathfinder=2, Vampire=2, Hellywood=1, Ragnarok=1}
+Ratio d'ouverture sur les jeux joués : 8.196%
+
+Maitres de jeu par ordre de préférence : {Yvan=5, Haldahir=2, Vrasel=1, Olivier=1}
+Ratio d'ouverture sur les maitres de jeux : 15.38%
+
+Collègues de jeu par ordre de préférence : {Darius=6, Pauline=5, Axel=5, Elfe=5, Yvan=3, Davy=2, Olivier=2, Vrasel=1, Saladdin=1, Delphine=1, Mina=1, Romain=1, Renaud=1}
+Ratio d'ouverture sur les collègues de jeux : 29.54%
+
+Jeux masterisés par ordre de préférence : {MDT=3, Scion=1, Sorcellerie=1, Vampire=1, Eleckasë=1}
+Joueurs masterisés par ordre de préférence : {Yvan=6, Mao=6, Darius=5, Pauline=2, Katzy=2, An=2, Micka=2, Mina=2, Nasher=1, Vrasel=1, Nog=1, Delphine=1, Binch=1, Nighteye=1}
+Ratio d'ouverture sur les joueurs masterisés : 31.81%
+
+
+***********************************
+
+
+Pseudo : Haldahir
+Présences : 5
+Nombre de fois MJ : 4
+
+Jeux joués par ordre de préférence : {Shade=1}
+Ratio d'ouverture sur les jeux joués : 1.639%
+
+Maitres de jeu par ordre de préférence : {Magus=1}
+Ratio d'ouverture sur les maitres de jeux : 3.846%
+
+Collègues de jeu par ordre de préférence : {Chris=1, Nog=1, An=1, Mina=1}
+Ratio d'ouverture sur les collègues de jeux : 9.090%
+
+Jeux masterisés par ordre de préférence : {Vampire=3, Deathwatch=1}
+Joueurs masterisés par ordre de préférence : {Yvan=3, Gwenael=2, Olivier=2, Pauline=1, Vrasel=1, Nasher=1, Dal=1, Nog=1, Axel=1, Mina=1, Darius=1, Grandalf=1, Mao=1}
+Ratio d'ouverture sur les joueurs masterisés : 29.54%
+
+
+***********************************
+
+
+Pseudo : Hecate
+Présences : 22
+Nombre de fois MJ : 1
+
+Jeux joués par ordre de préférence : {Loup solitaire=4, Hellywood=3, Plateau=3, SOS Fantome=2, Explo[nar]rateurs=1, Wurm=1, Post apo=1, Deathwatch=1, On Mighty Thews=1, Jeux courts=1, Shade=1, Mahamot=1, Pendragon=1}
+Ratio d'ouverture sur les jeux joués : 21.31%
+
+Maitres de jeu par ordre de préférence : {Vrasel=5, Saladdin=5, Chris=4, MJ_PLATEAU=3, Grandalf=1, Magus=1, Delphine=1, Olivier=1}
+Ratio d'ouverture sur les maitres de jeux : 30.76%
+
+Collègues de jeu par ordre de préférence : {Magus=8, Katzy=6, Dal=6, JbWysk=5, Mao=5, Vrasel=5, Edwin=4, Renaud=4, Lyanna=3, Jennifer=3, Binch=3, Nasher=3, Micka=2, Josk=2, Chris=2, Romain=2, Elfe=2, Joker=2, Yvan=2, Pauline=1, Mina=1, Nighteye=1, Loup=1, Davy=1, Erika=1, François=1, Olivier=1}
+Ratio d'ouverture sur les collègues de jeux : 61.36%
+
+Jeux masterisés par ordre de préférence : {Asgaard=1}
+Joueurs masterisés par ordre de préférence : {Vrasel=1, Nasher=1, Nog=1, Edwin=1, Freud=1}
+Ratio d'ouverture sur les joueurs masterisés : 11.36%
+
+
+***********************************
+
+
+Pseudo : JbWysk
+Présences : 31
+Nombre de fois MJ : 6
+
+Jeux joués par ordre de préférence : {Campagne Shade=6, Shade=3, Donjon de Naheulbeuk=2, Greyhawk=2, Shadowrun=2, Hellywood=1, Explo[nar]rateurs=1, Cthulhu=1, Deathwatch=1, Mississippi=1, Paranoia=1, Reve de dragon=1, Mahamot=1, Les ombres d'Esteren=1, Pendragon=1}
+Ratio d'ouverture sur les jeux joués : 24.59%
+
+Maitres de jeu par ordre de préférence : {Magus=11, Chris=4, Saladdin=2, Grandalf=2, Joker=2, Vrasel=1, Elfe=1, Erika=1, Delphine=1}
+Ratio d'ouverture sur les maitres de jeux : 34.61%
+
+Collègues de jeu par ordre de préférence : {Chris=15, Lyanna=10, An=9, Nog=8, Katzy=6, Mao=6, Magus=6, Loup=5, Hecate=5, Micka=3, Delphine=3, Renaud=3, Thorfin=2, Nasher=2, Dal=2, Jill=2, Margault=2, Erika=2, Satsu=2, Jennifer=1, Elfe=1, Vrasel=1, Saladdin=1, Darius=1, Grandalf=1}
+Ratio d'ouverture sur les collègues de jeux : 56.81%
+
+Jeux masterisés par ordre de préférence : {Les ombres d'Esteren=3, Billet rouge=1, INS/MV=1, MV=1}
+Joueurs masterisés par ordre de préférence : {Nog=3, An=2, Magus=2, Delphine=2, Mao=2, Vrasel=1, Katzy=1, Micka=1, Mina=1, Chris=1, Elfe=1, Erika=1, François=1, Joker=1}
+Ratio d'ouverture sur les joueurs masterisés : 31.81%
+
+
+***********************************
+
+
+Pseudo : Jennifer
+Présences : 13
+Nombre de fois MJ : 0
+
+Jeux joués par ordre de préférence : {Plateau=7, DK²=2, Hellywood=1, Donjon de Naheulbeuk=1, Shade=1, Midnight=1}
+Ratio d'ouverture sur les jeux joués : 9.836%
+
+Maitres de jeu par ordre de préférence : {MJ_PLATEAU=7, An=2, Magus=2, Chris=1, Joker=1}
+Ratio d'ouverture sur les maitres de jeux : 19.23%
+
+Collègues de jeu par ordre de préférence : {Lyanna=5, Edwin=5, Renaud=4, Romain=3, Nasher=3, Hecate=3, Freud=2, Chris=2, Thorfin=2, Nighteye=2, Elfe=2, Magus=2, François=2, Pauline=1, Katzy=1, Mina=1, JbWysk=1, Mao=1, Vrasel=1, Dal=1, An=1, Erika=1}
+Ratio d'ouverture sur les collègues de jeux : 50.0%
+
+
+
+***********************************
+
+
+Pseudo : Jill
+Présences : 7
+Nombre de fois MJ : 0
+
+Jeux joués par ordre de préférence : {Donjon de Naheulbeuk=1, Loup solitaire=1, Dark Heresy=1, Reve de dragon=1, Midnight=1, Agone=1, Pendragon=1}
+Ratio d'ouverture sur les jeux joués : 11.47%
+
+Maitres de jeu par ordre de préférence : {Vrasel=1, Chris=1, Margault=1, Saladdin=1, Magus=1, Zepierre=1, Joker=1}
+Ratio d'ouverture sur les maitres de jeux : 26.92%
+
+Collègues de jeu par ordre de préférence : {Loup=3, Katzy=2, Edwin=2, An=2, Magus=2, Freud=2, JbWysk=2, Nasher=1, Dal=1, Nog=1, Saladdin=1, Micka=1, Delphine=1, Thorfin=1, Chris=1, Elfe=1, Satsu=1, Mao=1, Joker=1}
+Ratio d'ouverture sur les collègues de jeux : 43.18%
+
+
+
+***********************************
+
+
+Pseudo : Joker
+Présences : 15
+Nombre de fois MJ : 5
+
+Jeux joués par ordre de préférence : {Loup solitaire=2, Agone=2, Tremulus=1, Billet rouge=1, Dark Heresy=1, Reve de dragon=1, Necropolis=1, INS/MV=1}
+Ratio d'ouverture sur les jeux joués : 13.11%
+
+Maitres de jeu par ordre de préférence : {Vrasel=2, Margault=2, Saladdin=2, Edwin=2, Nog=1, JbWysk=1}
+Ratio d'ouverture sur les maitres de jeux : 23.07%
+
+Collègues de jeu par ordre de préférence : {Katzy=4, Dal=3, Thorfin=3, Freud=2, Magus=2, Hecate=2, Delphine=2, Satsu=2, Mao=2, Loup=1, Nog=1, An=1, Micka=1, Zepierre=1, Chris=1, Jill=1, Erika=1}
+Ratio d'ouverture sur les collègues de jeux : 38.63%
+
+Jeux masterisés par ordre de préférence : {Donjon de Naheulbeuk=4, Qin=1}
+Joueurs masterisés par ordre de préférence : {Loup=3, Katzy=2, Delphine=2, JbWysk=2, Mao=2, Lyanna=1, An=1, Micka=1, Jennifer=1, Mina=1, Thorfin=1, Jill=1, Romain=1}
+Ratio d'ouverture sur les joueurs masterisés : 29.54%
+
+
+***********************************
+
+
+Pseudo : Josk
+Présences : 4
+Nombre de fois MJ : 1
+
+Jeux joués par ordre de préférence : {On Mighty Thews=1, Wurm=1, Midnight=1}
+Ratio d'ouverture sur les jeux joués : 4.918%
+
+Maitres de jeu par ordre de préférence : {Saladdin=1, Magus=1, Olivier=1}
+Ratio d'ouverture sur les maitres de jeux : 11.53%
+
+Collègues de jeu par ordre de préférence : {Hecate=2, Renaud=2, Pauline=1, Yvan=1, Lyanna=1, Micka=1, Mina=1, Erika=1, François=1, Mao=1}
+Ratio d'ouverture sur les collègues de jeux : 22.72%
+
+Jeux masterisés par ordre de préférence : {Runequest=1}
+Joueurs masterisés par ordre de préférence : {Romain=1}
+Ratio d'ouverture sur les joueurs masterisés : 2.272%
+
+
+***********************************
+
+
+Pseudo : Katzy
+Présences : 31
+Nombre de fois MJ : 2
+
+Jeux joués par ordre de préférence : {Les ombres d'Esteren=3, Explo[nar]rateurs=2, DK²=2, Tenga=2, Agone=2, Loup solitaire=2, INS/MV=2, Hellywood=1, Donjon de Naheulbeuk=1, Scion=1, Sorcellerie=1, COPS=1, Qin=1, Deathwatch=1, Humanydyne=1, Shadowrun=1, Dark Heresy=1, Reve de dragon=1, Paranoia=1, Shade=1, Mahamot=1}
+Ratio d'ouverture sur les jeux joués : 34.42%
+
+Maitres de jeu par ordre de préférence : {Vrasel=3, Saladdin=3, Edwin=2, Magus=2, Gwenael=2, Chris=2, Romain=2, Margault=2, Erika=2, Mao=2, Joker=2, Nog=1, An=1, Zepierre=1, Delphine=1, JbWysk=1}
+Ratio d'ouverture sur les maitres de jeux : 61.53%
+
+Collègues de jeu par ordre de préférence : {Mao=14, Loup=7, Magus=7, JbWysk=6, Hecate=6, Elfe=5, An=5, Thorfin=4, Joker=4, Nog=3, Edwin=3, Freud=3, Chris=3, Nasher=3, Delphine=3, Lyanna=2, Binch=2, Mina=2, Vrasel=2, Dal=2, Jill=2, Erika=2, Satsu=2, Micka=1, Jennifer=1, Nighteye=1, Yvan=1, Saladdin=1, Darius=1, Margault=1}
+Ratio d'ouverture sur les collègues de jeux : 68.18%
+
+Jeux masterisés par ordre de préférence : {Everyday is Halloween=2}
+Joueurs masterisés par ordre de préférence : {Dal=2, Vrasel=1, Thorfin=1, Nog=1, Erika=1, Saladdin=1, An=1}
+Ratio d'ouverture sur les joueurs masterisés : 15.90%
+
+
+***********************************
+
+
+Pseudo : Loup
+Présences : 22
+Nombre de fois MJ : 0
+
+Jeux joués par ordre de préférence : {Donjon de Naheulbeuk=3, DK²=2, Reve de dragon=2, Hellywood=1, Explo[nar]rateurs=1, Necropolis=1, Edge of the empire=1, COPS=1, Loup solitaire=1, Shadowrun=1, Dark Heresy=1, Mississippi=1, Wastburg=1, Jeux courts=1, Shade=1, Les ombres d'Esteren=1, INS/MV=1, Pendragon=1}
+Ratio d'ouverture sur les jeux joués : 29.50%
+
+Maitres de jeu par ordre de préférence : {Saladdin=6, Joker=3, Chris=2, Edwin=2, Magus=2, Vrasel=1, Romain=1, Elfe=1, Nog=1, Erika=1, Zepierre=1, Mao=1}
+Ratio d'ouverture sur les maitres de jeux : 46.15%
+
+Collègues de jeu par ordre de préférence : {Katzy=7, Thorfin=6, Romain=6, Mao=6, JbWysk=5, Delphine=5, Micka=4, Elfe=4, Nasher=4, Magus=4, Dal=3, An=3, Jill=3, Erika=3, Lyanna=2, Edwin=2, Vrasel=2, Freud=1, Chris=1, Joker=1, Zepierre=1, Hecate=1, Satsu=1}
+Ratio d'ouverture sur les collègues de jeux : 52.27%
+
+
+
+***********************************
+
+
+Pseudo : Lyanna
+Présences : 26
+Nombre de fois MJ : 0
+
+Jeux joués par ordre de préférence : {Campagne Shade=6, Plateau=5, Shade=3, Pendragon=3, Shadowrun=2, Hellywood=1, Qin=1, Deathwatch=1, On Mighty Thews=1, Mississippi=1, Les masques de Nyarlathotep=1, INS/MV=1}
+Ratio d'ouverture sur les jeux joués : 19.67%
+
+Maitres de jeu par ordre de préférence : {Magus=10, Chris=5, MJ_PLATEAU=5, Vrasel=1, Elfe=1, Nog=1, Saladdin=1, Zepierre=1, Joker=1}
+Ratio d'ouverture sur les maitres de jeux : 34.61%
+
+Collègues de jeu par ordre de préférence : {Chris=11, Nog=10, JbWysk=10, Mao=9, Nasher=8, An=8, Magus=7, Edwin=6, Jennifer=5, Renaud=5, Romain=4, Elfe=4, Hecate=3, Katzy=2, Micka=2, Vrasel=2, Dal=2, Loup=2, Josk=1, Thorfin=1, Saladdin=1, Zepierre=1, Delphine=1, Erika=1, François=1, Grandalf=1}
+Ratio d'ouverture sur les collègues de jeux : 59.09%
+
+
+
+***********************************
+
+
+Pseudo : MJ_PLATEAU
+Présences : 12
+Nombre de fois MJ : 12
+
+Jeux masterisés par ordre de préférence : {Plateau=12}
+Joueurs masterisés par ordre de préférence : {Jennifer=7, Lyanna=5, Edwin=5, Romain=5, Nasher=4, Renaud=4, Vrasel=3, Hecate=3, Elfe=2, Dal=2, Magus=2, François=2, Pauline=1, Nighteye=1, Mao=1, Delphine=1, Erika=1}
+Ratio d'ouverture sur les joueurs masterisés : 38.63%
+
+
+***********************************
+
+
+Pseudo : Magus
+Présences : 58
+Nombre de fois MJ : 22
+
+Jeux joués par ordre de préférence : {Hellywood=4, INS/MV=4, Pendragon=4, Loup solitaire=3, Les masques de Nyarlathotep=2, Plateau=2, Les ombres d'Esteren=2, Explo[nar]rateurs=1, Cthulhu=1, Kuro=1, SOS Fantome=1, Deathwatch=1, PSI*RUN=1, Humanydyne=1, Shadowrun=1, Mississippi=1, Paranoia=1, Subabysse=1, Bloodlust=1, Mahamot=1, MV=1, The last year=1}
+Ratio d'ouverture sur les jeux joués : 36.06%
+
+Maitres de jeu par ordre de préférence : {Chris=14, Vrasel=4, Saladdin=4, Nog=3, MJ_PLATEAU=2, Elfe=2, JbWysk=2, Romain=1, Erika=1, Zepierre=1, Delphine=1, Mao=1}
+Ratio d'ouverture sur les maitres de jeux : 46.15%
+
+Collègues de jeu par ordre de préférence : {Edwin=10, Chris=9, Mao=8, Hecate=8, Lyanna=7, Katzy=7, Elfe=6, JbWysk=6, Nog=5, Nasher=5, Saladdin=5, Loup=4, Erika=4, Renaud=4, Micka=3, Dal=3, An=3, Jennifer=2, Romain=2, Nighteye=2, Joker=2, Vrasel=2, Jill=2, Pauline=1, Thorfin=1, Zepierre=1, François=1, Olivier=1}
+Ratio d'ouverture sur les collègues de jeux : 63.63%
+
+Jeux masterisés par ordre de préférence : {Shade=7, Campagne Shade=6, Shadowrun=6, Midnight=3}
+Joueurs masterisés par ordre de préférence : {Chris=17, Nog=14, An=12, JbWysk=11, Lyanna=10, Mao=5, Micka=4, Mina=3, Renaud=3, Katzy=2, Freud=2, Jennifer=2, Nasher=2, Loup=2, Delphine=2, Edwin=1, Binch=1, Haldahir=1, Josk=1, Romain=1, Elfe=1, Vrasel=1, Hecate=1, Jill=1, Erika=1, François=1, Grandalf=1}
+Ratio d'ouverture sur les joueurs masterisés : 61.36%
+
+
+***********************************
+
+
+Pseudo : Mao
+Présences : 45
+Nombre de fois MJ : 2
+
+Jeux joués par ordre de préférence : {Deathwatch=5, Shadowrun=4, INS/MV=3, MDT=3, Loup solitaire=2, Shade=2, Greyhawk=2, Agone=2, Les ombres d'Esteren=2, Hellywood=1, Sorcellerie=1, Necropolis=1, On Mighty Thews=1, Les masques de Nyarlathotep=1, Wastburg=1, Paranoia=1, Subabysse=1, Pendragon=1, Donjon de Naheulbeuk=1, Explo[nar]rateurs=1, Scion=1, DK²=1, Plagues DK²=1, Qin=1, Plateau=1, The last year=1, Eleckasë=1}
+Ratio d'ouverture sur les jeux joués : 44.26%
+
+Maitres de jeu par ordre de préférence : {Vrasel=6, Gwenael=6, Chris=6, Magus=5, Saladdin=4, Margault=2, Grandalf=2, JbWysk=2, Joker=2, MJ_PLATEAU=1, Nog=1, Edwin=1, An=1, Zepierre=1, Binch=1, Haldahir=1, Erika=1}
+Ratio d'ouverture sur les maitres de jeux : 65.38%
+
+Collègues de jeu par ordre de préférence : {Katzy=14, Nasher=14, Lyanna=9, Magus=8, Chris=7, Delphine=7, Edwin=6, JbWysk=6, Vrasel=6, Loup=6, Nog=5, Romain=5, Dal=5, Yvan=5, Hecate=5, Darius=5, Mina=4, Satsu=4, Freud=3, Micka=3, Binch=3, Thorfin=3, Elfe=3, Saladdin=3, An=3, Margault=3, Erika=3, Nighteye=2, Joker=2, Grandalf=2, Pauline=1, Jennifer=1, Josk=1, Jill=1, Davy=1, Renaud=1}
+Ratio d'ouverture sur les collègues de jeux : 81.81%
+
+Jeux masterisés par ordre de préférence : {Humanydyne=1, DK²=1}
+Joueurs masterisés par ordre de préférence : {Katzy=2, Loup=1, Chris=1, Edwin=1, Saladdin=1, Freud=1, Magus=1}
+Ratio d'ouverture sur les joueurs masterisés : 15.90%
+
+
+***********************************
+
+
+Pseudo : Margault
+Présences : 6
+Nombre de fois MJ : 3
+
+Jeux joués par ordre de préférence : {Greyhawk=2, DK²=1}
+Ratio d'ouverture sur les jeux joués : 3.278%
+
+Maitres de jeu par ordre de préférence : {Grandalf=2, An=1}
+Ratio d'ouverture sur les maitres de jeux : 7.692%
+
+Collègues de jeu par ordre de préférence : {Mao=3, Chris=2, Satsu=2, JbWysk=2, Darius=1, Katzy=1, Freud=1, Delphine=1}
+Ratio d'ouverture sur les collègues de jeux : 18.18%
+
+Jeux masterisés par ordre de préférence : {Agone=3}
+Joueurs masterisés par ordre de préférence : {Satsu=3, Katzy=2, Mao=2, Joker=2, Nasher=1, Darius=1, Thorfin=1, Jill=1, Grandalf=1, Freud=1, Delphine=1}
+Ratio d'ouverture sur les joueurs masterisés : 25.0%
+
+
+***********************************
+
+
+Pseudo : Micka
+Présences : 17
+Nombre de fois MJ : 0
+
+Jeux joués par ordre de préférence : {Shadowrun=3, Donjon de Naheulbeuk=1, Prophecy=1, Cthulhu=1, Post apo=1, Vampire=1, Midnight=1, Kuro=1, SOS Fantome=1, Billet rouge=1, Loup solitaire=1, Dark Heresy=1, MDT=1, Les ombres d'Esteren=1, Pendragon=1}
+Ratio d'ouverture sur les jeux joués : 24.59%
+
+Maitres de jeu par ordre de préférence : {Magus=4, Chris=2, Grandalf=2, Gwenael=2, Vrasel=1, Romain=1, Saladdin=1, Erika=1, Zepierre=1, JbWysk=1, Joker=1}
+Ratio d'ouverture sur les maitres de jeux : 42.30%
+
+Collègues de jeu par ordre de préférence : {Loup=4, Renaud=4, Chris=3, Elfe=3, JbWysk=3, Mao=3, Nasher=3, Yvan=3, Magus=3, Delphine=3, Erika=3, Lyanna=2, Nog=2, An=2, Hecate=2, Pauline=1, Katzy=1, Edwin=1, Binch=1, Josk=1, Thorfin=1, Joker=1, Darius=1, Jill=1, Davy=1, François=1, Grandalf=1}
+Ratio d'ouverture sur les collègues de jeux : 61.36%
+
+
+
+***********************************
+
+
+Pseudo : Mina
+Présences : 13
+Nombre de fois MJ : 0
+
+Jeux joués par ordre de préférence : {Shadowrun=2, MDT=2, Les ombres d'Esteren=2, Donjon de Naheulbeuk=1, Wurm=1, Medfan=1, Plagues DK²=1, Tenga=1, Vampire=1, Shade=1}
+Ratio d'ouverture sur les jeux joués : 16.39%
+
+Maitres de jeu par ordre de préférence : {Magus=3, Gwenael=2, Haldahir=1, Yvan=1, Romain=1, Erika=1, Binch=1, JbWysk=1, Olivier=1, Joker=1}
+Ratio d'ouverture sur les maitres de jeux : 38.46%
+
+Collègues de jeu par ordre de préférence : {An=10, Nog=8, Yvan=4, Mao=4, Pauline=2, Katzy=2, Chris=2, Darius=2, Freud=1, Gwenael=1, Jennifer=1, Hecate=1, Haldahir=1, Josk=1, Renaud=1, Olivier=1}
+Ratio d'ouverture sur les collègues de jeux : 36.36%
+
+
+
+***********************************
+
+
+Pseudo : Nasher
+Présences : 29
+Nombre de fois MJ : 0
+
+Jeux joués par ordre de préférence : {Deathwatch=7, Plateau=4, Paranoia=3, Loup solitaire=2, Shade=2, Explo[nar]rateurs=1, Asgaard=1, Sorcellerie=1, Agone=1, SOS Fantome=1, Shadowrun=1, Dark Heresy=1, Wastburg=1, Subabysse=1, INS/MV=1, Pendragon=1}
+Ratio d'ouverture sur les jeux joués : 26.22%
+
+Maitres de jeu par ordre de préférence : {Vrasel=8, Chris=4, MJ_PLATEAU=4, Saladdin=3, Zepierre=3, Magus=2, Haldahir=1, Margault=1, Nog=1, Gwenael=1, Hecate=1}
+Ratio d'ouverture sur les maitres de jeux : 42.30%
+
+Collègues de jeu par ordre de préférence : {Mao=14, Edwin=9, Lyanna=8, Dal=7, Romain=6, Magus=5, Erika=5, Elfe=4, Vrasel=4, Loup=4, Saladdin=4, Katzy=3, Micka=3, Jennifer=3, Hecate=3, Renaud=3, Nog=2, Chris=2, Thorfin=2, Nighteye=2, JbWysk=2, Darius=2, Grandalf=2, Freud=1, Binch=1, Yvan=1, Zepierre=1, Delphine=1, Jill=1, François=1, Satsu=1}
+Ratio d'ouverture sur les collègues de jeux : 70.45%
+
+
+
+***********************************
+
+
+Pseudo : Nighteye
+Présences : 5
+Nombre de fois MJ : 0
+
+Jeux joués par ordre de préférence : {Deathwatch=2, Hellywood=1, Scion=1, Plateau=1}
+Ratio d'ouverture sur les jeux joués : 6.557%
+
+Maitres de jeu par ordre de préférence : {Vrasel=2, Chris=1, MJ_PLATEAU=1, Gwenael=1}
+Ratio d'ouverture sur les maitres de jeux : 15.38%
+
+Collègues de jeu par ordre de préférence : {Nasher=2, Magus=2, Jennifer=2, Mao=2, Pauline=1, Dal=1, Katzy=1, Edwin=1, Binch=1, Hecate=1, Romain=1}
+Ratio d'ouverture sur les collègues de jeux : 25.0%
+
+
+
+***********************************
+
+
+Pseudo : Nog
+Présences : 34
+Nombre de fois MJ : 4
+
+Jeux joués par ordre de préférence : {Campagne Shade=7, Shadowrun=4, Shade=3, Les ombres d'Esteren=3, Tenga=2, Les masques de Nyarlathotep=2, Asgaard=1, Medfan=1, Vampire=1, Everyday is Halloween=1, Dark Heresy=1, MDT=1, INS/MV=1, MV=1, Pendragon=1}
+Ratio d'ouverture sur les jeux joués : 24.59%
+
+Maitres de jeu par ordre de préférence : {Magus=14, Chris=3, JbWysk=3, Romain=2, Erika=2, Haldahir=1, Yvan=1, Katzy=1, Edwin=1, Gwenael=1, Hecate=1}
+Ratio d'ouverture sur les maitres de jeux : 42.30%
+
+Collègues de jeu par ordre de préférence : {An=19, Chris=13, Lyanna=10, Mina=8, JbWysk=8, Mao=5, Magus=5, Edwin=4, Katzy=3, Vrasel=3, Freud=2, Micka=2, Thorfin=2, Elfe=2, Nasher=2, Yvan=2, Darius=2, Haldahir=1, Joker=1, Dal=1, Delphine=1, Jill=1, François=1, Renaud=1}
+Ratio d'ouverture sur les collègues de jeux : 54.54%
+
+Jeux masterisés par ordre de préférence : {INS/MV=4}
+Joueurs masterisés par ordre de préférence : {Magus=3, Edwin=2, Nasher=1, Loup=1, Lyanna=1, Katzy=1, An=1, Zepierre=1, Chris=1, Elfe=1, Mao=1, Joker=1}
+Ratio d'ouverture sur les joueurs masterisés : 27.27%
+
+
+***********************************
+
+
+Pseudo : Olivier
+Présences : 5
+Nombre de fois MJ : 2
+
+Jeux joués par ordre de préférence : {Vampire=2, Hellywood=1}
+Ratio d'ouverture sur les jeux joués : 3.278%
+
+Maitres de jeu par ordre de préférence : {Haldahir=2, Chris=1}
+Ratio d'ouverture sur les maitres de jeux : 7.692%
+
+Collègues de jeu par ordre de préférence : {Yvan=2, Gwenael=2, Pauline=1, Dal=1, Magus=1, Hecate=1, Axel=1, Mina=1}
+Ratio d'ouverture sur les collègues de jeux : 18.18%
+
+Jeux masterisés par ordre de préférence : {Hellywood=1, Wurm=1}
+Joueurs masterisés par ordre de préférence : {Yvan=2, Pauline=1, Vrasel=1, Josk=1, Gwenael=1, Hecate=1, Mina=1}
+Ratio d'ouverture sur les joueurs masterisés : 15.90%
+
+
+***********************************
+
+
+Pseudo : Pauline
+Présences : 10
+Nombre de fois MJ : 0
+
+Jeux joués par ordre de préférence : {Pathfinder=3, Vampire=2, Campagne Pathfinder=1, Wurm=1, Campagne DD=1, Plateau=1, Eleckasë=1}
+Ratio d'ouverture sur les jeux joués : 11.47%
+
+Maitres de jeu par ordre de préférence : {Yvan=4, Gwenael=2, Haldahir=1, MJ_PLATEAU=1, Olivier=1}
+Ratio d'ouverture sur les maitres de jeux : 19.23%
+
+Collègues de jeu par ordre de préférence : {Darius=7, Yvan=5, Gwenael=5, Axel=4, Elfe=4, Mina=2, Vrasel=1, Micka=1, Magus=1, Jennifer=1, Hecate=1, Josk=1, Nighteye=1, Davy=1, Olivier=1, Mao=1}
+Ratio d'ouverture sur les collègues de jeux : 36.36%
+
+
+
+***********************************
+
+
+Pseudo : Renaud
+Présences : 14
+Nombre de fois MJ : 0
+
+Jeux joués par ordre de préférence : {Plateau=4, Shade=2, Pendragon=2, SOS Fantome=1, On Mighty Thews=1, Ragnarok=1, Midnight=1, Kuro=1, Les ombres d'Esteren=1}
+Ratio d'ouverture sur les jeux joués : 14.75%
+
+Maitres de jeu par ordre de préférence : {MJ_PLATEAU=4, Magus=3, Chris=2, Saladdin=2, Vrasel=1, Romain=1, Erika=1}
+Ratio d'ouverture sur les maitres de jeux : 26.92%
+
+Collègues de jeu par ordre de préférence : {Lyanna=5, Micka=4, Jennifer=4, Romain=4, Magus=4, Hecate=4, Edwin=3, JbWysk=3, Nasher=3, François=3, Chris=2, Josk=2, Elfe=2, Erika=2, Nog=1, Gwenael=1, Binch=1, Mina=1, Mao=1, Saladdin=1, An=1, Delphine=1, Darius=1}
+Ratio d'ouverture sur les collègues de jeux : 52.27%
+
+
+
+***********************************
+
+
+Pseudo : Romain
+Présences : 25
+Nombre de fois MJ : 4
+
+Jeux joués par ordre de préférence : {Plateau=5, Deathwatch=4, Donjon de Naheulbeuk=1, DK²=1, Ragnarok=1, Edge of the empire=1, Necropolis=1, Loup solitaire=1, Jeux courts=1, Shade=1, Runequest=1, Bloodlust=1, Mahamot=1, Pendragon=1}
+Ratio d'ouverture sur les jeux joués : 22.95%
+
+Maitres de jeu par ordre de préférence : {Vrasel=6, MJ_PLATEAU=5, Saladdin=2, Josk=1, Chris=1, Elfe=1, Edwin=1, An=1, Magus=1, Delphine=1, Joker=1}
+Ratio d'ouverture sur les maitres de jeux : 42.30%
+
+Collègues de jeu par ordre de préférence : {Edwin=6, Nasher=6, Loup=6, Delphine=6, Mao=5, Lyanna=4, Renaud=4, Jennifer=3, Elfe=3, Dal=3, Erika=3, Thorfin=2, Vrasel=2, Saladdin=2, Magus=2, Hecate=2, Satsu=2, Gwenael=1, Binch=1, Chris=1, Nighteye=1, Darius=1, François=1}
+Ratio d'ouverture sur les collègues de jeux : 52.27%
+
+Jeux masterisés par ordre de préférence : {Tenga=2, DK²=1, Kuro=1}
+Joueurs masterisés par ordre de préférence : {Katzy=2, Nog=2, An=2, Loup=1, Dal=1, Micka=1, Magus=1, Renaud=1, Mina=1}
+Ratio d'ouverture sur les joueurs masterisés : 20.45%
+
+
+***********************************
+
+
+Pseudo : Saladdin
+Présences : 24
+Nombre de fois MJ : 14
+
+Jeux joués par ordre de préférence : {Paranoia=2, Bloodlust=2, Everyday is Halloween=1, Deathwatch=1, Humanydyne=1, Loup solitaire=1, Ragnarok=1, Subabysse=1}
+Ratio d'ouverture sur les jeux joués : 13.11%
+
+Maitres de jeu par ordre de préférence : {Vrasel=3, Chris=3, Elfe=2, Katzy=1, Mao=1}
+Ratio d'ouverture sur les maitres de jeux : 19.23%
+
+Collègues de jeu par ordre de préférence : {Magus=5, Nasher=4, Erika=4, Chris=3, Mao=3, Edwin=2, Delphine=2, Romain=2, Dal=1, Lyanna=1, Katzy=1, An=1, Gwenael=1, Darius=1, Jill=1, Elfe=1, Renaud=1, JbWysk=1}
+Ratio d'ouverture sur les collègues de jeux : 40.90%
+
+Jeux masterisés par ordre de préférence : {SOS Fantome=2, Explo[nar]rateurs=2, Tremulus=2, Reve de dragon=2, On Mighty Thews=1, PSI*RUN=1, Wastburg=1, Jeux courts=1, Edge of the empire=1, The last year=1}
+Joueurs masterisés par ordre de préférence : {Loup=6, Hecate=5, Mao=4, Magus=4, Katzy=3, Thorfin=3, Nasher=3, Chris=2, Romain=2, Elfe=2, JbWysk=2, Joker=2, Vrasel=2, Dal=2, An=2, Erika=2, Renaud=2, Lyanna=1, Freud=1, Micka=1, Binch=1, Josk=1, Zepierre=1, Delphine=1, Jill=1, Satsu=1}
+Ratio d'ouverture sur les joueurs masterisés : 59.09%
+
+
+***********************************
+
+
+Pseudo : Satsu
+Présences : 7
+Nombre de fois MJ : 0
+
+Jeux joués par ordre de préférence : {Agone=3, Greyhawk=2, DK²=1, Edge of the empire=1}
+Ratio d'ouverture sur les jeux joués : 6.557%
+
+Maitres de jeu par ordre de préférence : {Margault=3, Grandalf=2, Saladdin=1, An=1}
+Ratio d'ouverture sur les maitres de jeux : 15.38%
+
+Collègues de jeu par ordre de préférence : {Mao=4, Katzy=2, Thorfin=2, Chris=2, Darius=2, Romain=2, Margault=2, JbWysk=2, Joker=2, Nasher=1, Loup=1, Freud=1, Delphine=1, Binch=1, Jill=1, Grandalf=1}
+Ratio d'ouverture sur les collègues de jeux : 36.36%
+
+
+
+***********************************
+
+
+Pseudo : Thorfin
+Présences : 14
+Nombre de fois MJ : 0
+
+Jeux joués par ordre de préférence : {DK²=2, Donjon de Naheulbeuk=1, Edge of the empire=1, Necropolis=1, Agone=1, COPS=1, Everyday is Halloween=1, Capharnaum=1, Tremulus=1, Dark Heresy=1, Mississippi=1, Paranoia=1, Wastburg=1}
+Ratio d'ouverture sur les jeux joués : 21.31%
+
+Maitres de jeu par ordre de préférence : {Edwin=3, Saladdin=3, Elfe=2, An=2, Margault=1, Katzy=1, Zepierre=1, Joker=1}
+Ratio d'ouverture sur les maitres de jeux : 30.76%
+
+Collègues de jeu par ordre de préférence : {Loup=6, Katzy=4, Freud=3, Delphine=3, Mao=3, Joker=3, Nasher=2, Vrasel=2, Nog=2, Edwin=2, Jennifer=2, Romain=2, Satsu=2, JbWysk=2, Lyanna=1, Dal=1, Micka=1, Magus=1, Jill=1, Erika=1}
+Ratio d'ouverture sur les collègues de jeux : 45.45%
+
+
+
+***********************************
+
+
+Pseudo : Vrasel
+Présences : 31
+Nombre de fois MJ : 15
+
+Jeux joués par ordre de préférence : {Plateau=3, Hellywood=1, Explo[nar]rateurs=1, Cthulhu=1, Asgaard=1, Necropolis=1, Au clair de l'obscure=1, Everyday is Halloween=1, Deathwatch=1, Les masques de Nyarlathotep=1, Jeux courts=1, Shade=1, Les ombres d'Esteren=1, Eleckasë=1}
+Ratio d'ouverture sur les jeux joués : 22.95%
+
+Maitres de jeu par ordre de préférence : {MJ_PLATEAU=3, Chris=2, Saladdin=2, Haldahir=1, Katzy=1, Edwin=1, Magus=1, Gwenael=1, Hecate=1, JbWysk=1, Olivier=1}
+Ratio d'ouverture sur les maitres de jeux : 42.30%
+
+Collègues de jeu par ordre de préférence : {Mao=6, Edwin=5, Dal=5, Hecate=5, Nasher=4, Nog=3, Lyanna=2, Katzy=2, Thorfin=2, Romain=2, Yvan=2, Loup=2, Magus=2, Delphine=2, Pauline=1, Freud=1, Gwenael=1, Jennifer=1, Binch=1, Chris=1, JbWysk=1, An=1, Darius=1, François=1, Grandalf=1}
+Ratio d'ouverture sur les collègues de jeux : 56.81%
+
+Jeux masterisés par ordre de préférence : {Deathwatch=7, Loup solitaire=7, Ragnarok=1}
+Joueurs masterisés par ordre de préférence : {Nasher=8, Edwin=7, Romain=6, Mao=6, Dal=6, Hecate=5, Magus=4, Katzy=3, Saladdin=3, Chris=2, Nighteye=2, Elfe=2, Joker=2, Lyanna=1, Micka=1, Gwenael=1, Binch=1, JbWysk=1, Loup=1, Delphine=1, Darius=1, Jill=1, Erika=1, Renaud=1}
+Ratio d'ouverture sur les joueurs masterisés : 54.54%
+
+
+***********************************
+
+
+Pseudo : Yvan
+Présences : 19
+Nombre de fois MJ : 6
+
+Jeux joués par ordre de préférence : {Vampire=4, MDT=3, Hellywood=1, Wurm=1, Sorcellerie=1, Post apo=1, Campagne DD=1, Eleckasë=1}
+Ratio d'ouverture sur les jeux joués : 13.11%
+
+Maitres de jeu par ordre de préférence : {Gwenael=6, Haldahir=3, Olivier=2, Grandalf=1}
+Ratio d'ouverture sur les maitres de jeux : 15.38%
+
+Collègues de jeu par ordre de préférence : {Darius=7, Pauline=5, Mao=5, Mina=4, Micka=3, Gwenael=3, Vrasel=2, Nog=2, An=2, Hecate=2, Axel=2, Olivier=2, Nasher=1, Katzy=1, Delphine=1, Josk=1, Davy=1}
+Ratio d'ouverture sur les collègues de jeux : 38.63%
+
+Jeux masterisés par ordre de préférence : {Pathfinder=3, Campagne Pathfinder=2, Medfan=1}
+Joueurs masterisés par ordre de préférence : {Darius=5, Elfe=5, Gwenael=5, Pauline=4, Axel=4, Davy=2, Nog=1, An=1, Mina=1}
+Ratio d'ouverture sur les joueurs masterisés : 20.45%
+
+
+***********************************
+
+
+Pseudo : Zepierre
+Présences : 5
+Nombre de fois MJ : 3
+
+Jeux joués par ordre de préférence : {Reve de dragon=1, INS/MV=1}
+Ratio d'ouverture sur les jeux joués : 3.278%
+
+Maitres de jeu par ordre de préférence : {Nog=1, Saladdin=1}
+Ratio d'ouverture sur les maitres de jeux : 7.692%
+
+Collègues de jeu par ordre de préférence : {Nasher=1, Lyanna=1, Loup=1, Dal=1, Edwin=1, An=1, Magus=1, Joker=1}
+Ratio d'ouverture sur les collègues de jeux : 18.18%
+
+Jeux masterisés par ordre de préférence : {Shadowrun=1, Dark Heresy=1, Paranoia=1}
+Joueurs masterisés par ordre de préférence : {Nasher=3, Lyanna=1, Thorfin=1, Jill=1, Loup=1, Katzy=1, Edwin=1, Magus=1, Micka=1, Mao=1}
+Ratio d'ouverture sur les joueurs masterisés : 22.72%

@@ -1,0 +1,5 @@
+core = "6.x"
+description = "Provide hooks for CJDRU website."
+name = "CJDRU Hooks"
+package = "CJDRU"
+version = "6.x-1.0"

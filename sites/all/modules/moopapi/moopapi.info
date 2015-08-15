@@ -1,0 +1,20 @@
+name = Module Object Oriented Programming API
+description = Makes pure OOP syntax modules possible within the Drupal framework
+core = 6.x
+
+; For lazy-load via files[] like in D7.
+dependencies[] = autoload
+
+;files[] = moopapi.install
+files[] = moopapi.module
+files[] = tests/moopapi.test
+files[] = component/moopapi.component.inc
+files[] = component/decorator/adapter/moopapi.adapter.inc
+files[] = component/decorator/logger/moopapi.logger.inc
+
+; Information added by drupal.org packaging script on 2013-08-04
+version = "6.x-1.3"
+core = "6.x"
+project = "moopapi"
+datestamp = "1375619773"
+

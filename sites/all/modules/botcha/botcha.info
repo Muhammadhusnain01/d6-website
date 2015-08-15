@@ -1,0 +1,34 @@
+name = BOTCHA
+description = BOTCHA Spam Prevention.
+package = "Spam control"
+core = 6.x
+
+; For lazy-load via files[] like in D7.
+dependencies[] = autoload
+; For db_* functions like in D7.
+dependencies[] = dbtng
+; To turn a module into an Application.
+dependencies[] = moopapi
+
+files[] = botcha.install
+files[] = botcha.module
+files[] = botcha.rules.inc
+files[] = controller/application/botcha.application.controller.inc
+files[] = controller/form/botcha.form.controller.inc
+files[] = controller/recipe/botcha.recipe.controller.inc
+files[] = controller/recipebook/botcha.recipebook.controller.inc
+files[] = model/application/botcha.application.model.inc
+files[] = model/form/botcha.form.model.inc
+files[] = model/recipe/botcha.recipe.model.inc
+files[] = model/recipebook/botcha.recipebook.model.inc
+; Tests
+files[] = tests/botcha.simpletest.test
+files[] = tests/botcha.selenium.test
+; Unfortunately we can't write update tests for D6 - can we?
+;files[] = tests/upgrade/update.botcha.test
+; Information added by drupal.org packaging script on 2013-02-01
+version = "6.x-3.0"
+core = "6.x"
+project = "botcha"
+datestamp = "1359734254"
+

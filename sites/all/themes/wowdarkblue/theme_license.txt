@@ -1,0 +1,4 @@
+This theme is released under the GNU General Public License with the fully permission of the orginal designer from www.nunodesign.de
+
+If you go public with your site, you can add this to the footer:
+World of Warcraft® and Blizzard Entertainment® are all trademarks or registered trademarks of Blizzard Entertainment in the United States and/or other countries. These terms and all related materials, logos, and images are copyright © Blizzard Entertainment. This site is in no way associated with or endorsed by Blizzard Entertainment®.

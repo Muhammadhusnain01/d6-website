@@ -1,0 +1,10 @@
+name = wowdarkblue
+description = A World of Warcraft theme.
+core = 6.x
+engine = phptemplate
+; Information added by drupal.org packaging script on 2009-02-17
+version = "6.x-1.x-dev"
+core = "6.x"
+project = "wowdarkblue"
+datestamp = "1234830152"
+
