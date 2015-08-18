@@ -1,7 +1,8 @@
 <?php
-// $Id: views_handler_argument_users_roles_rid.inc,v 1.1 2008/09/03 19:21:30 merlinofchaos Exp $
 /**
- * Allow role ID(s) as argument
+ * Allow role ID(s) as argument.
+ *
+ * @ingroup views_argument_handlers
  */
 class views_handler_argument_users_roles_rid extends views_handler_argument_many_to_one {
   function title_query() {
@@ -15,4 +16,3 @@ class views_handler_argument_users_roles_rid extends views_handler_argument_many
     return $titles;
   }
 }
-

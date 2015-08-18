@@ -1,5 +1,4 @@
 <?php
-// $Id: shoutbox.install,v 1.4.2.2 2008/07/29 09:05:21 disterics Exp $
 
 /**
  * @file
@@ -16,20 +15,19 @@ function shoutbox_schema() {
   $schema['shoutbox'] = array(
     'description' => t('A table containing the shoutbox posts.'),
     'fields' => array(
-      'shout_id' => array('type' => 'serial', 'unsigned' => TRUE, 'not null' => TRUE, 'description' => t('The primary identifier for the shout post.')),
-      'uid' => array('type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE, 'default' => 0, 'description' => t('The primary identifier for the shout post author.')),
-      'nick' => array('type' => 'varchar', 'length' => 32, 'not null' => TRUE, 'description' => t('The author\'s nickname.')),
-      'shout' => array('type' => 'varchar', 'length' => 255, 'not null' => TRUE, 'description' => t('The shout post.')),
-      'url' => array('type' => 'varchar', 'length' => 100, 'not null' => TRUE, 'description' => t('The url of the post.')),
-      'moderate' => array('type' => 'int', 'not null' => TRUE, 'default' => 0, 'description' => t('The moderation id.')),
-      'created' => array('type' => 'int', 'not null' => TRUE, 'default' => 0, 'description' => t('Creation date.')),
-      'changed' => array('type' => 'int', 'not null' => TRUE, 'default' => 0, 'description' => t('Last updated date.')),
-      'hostname' => array('type' => 'varchar', 'length' => 255, 'not null' => TRUE, 'description' => t('The hostname where the post originated.')),
-      'sid' =>  array('type' => 'varchar', 'length' => 64, 'not null' => TRUE, 'default' => '', 'description' => t('Session id of the current session.')),
+      'shout_id' => array('type' => 'serial', 'unsigned' => TRUE, 'not null' => TRUE, 'description' => 'The primary identifier for the shout post.'),
+      'uid' => array('type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE, 'default' => 0, 'description' => 'The primary identifier for the shout post author.'),
+      'nick' => array('type' => 'varchar', 'length' => 60, 'not null' => TRUE, 'description' => 'The author\'s nickname.'),
+      'shout' => array('type' => 'text', 'size' => 'big', 'not null' => TRUE, 'description' => 'The shout post.'),
+      'module' => array('type' => 'varchar', 'length' => 64, 'not null' => TRUE, 'description' => 'The module that this shout belongs to.'),
+      'moderate' => array('type' => 'int', 'not null' => TRUE, 'default' => 0, 'description' => 'The moderation id.'),
+      'created' => array('type' => 'int', 'not null' => TRUE, 'default' => 0, 'description' => 'Creation date.'),
+      'changed' => array('type' => 'int', 'not null' => TRUE, 'default' => 0, 'description' => 'Last updated date.'),
+      'hostname' => array('type' => 'varchar', 'length' => 255, 'default' => 'localhost', 'not null' => TRUE, 'description' => 'The hostname where the post originated.'),
+      'sid' =>  array('type' => 'varchar', 'length' => 64, 'not null' => TRUE, 'default' => '', 'description' => 'Session id of the current session.'),
     ),
     'primary key' => array('shout_id'),
   );
-
 
   return $schema;
 }
@@ -46,25 +44,28 @@ function shoutbox_uninstall() {
 
   // Delete variables.
   variable_del('shoutbox_expire');
-  variable_del('shoutbox_showamount');
   variable_del('shoutbox_ascending');
-  variable_del('shoutbox_defaultname');
-  variable_del('shoutbox_shownamefield');
-  variable_del('shoutbox_showurlfield');
   variable_del('shoutbox_refresh');
   variable_del('shoutbox_anonymous_timeout');
   variable_del('shoutbox_registered_timeout');
   variable_del('shoutbox_filter_format');
+  variable_del('shoutbox_max_length');
+  variable_del('shoutbox_showamount_block');
+  variable_del('shoutbox_showamount_page');
+  variable_del('shoutbox_escape_html');
+  variable_del('shoutbox_profile_name');
+  variable_del('shoutbox_restrict_general_shouts');
+  variable_del('shoutbox_time_format');
+  variable_del('shoutbox_widget_type');
 }
 
 /**
  * Update hook.
- * This update prepares the database for for
+ * This update prepares the database for
  * shoutbox 5.2.x
  * Removes the moderation table
  * Drops the status column on the shoutbox table
  * Adds sid column to the shoutbox table
- *
  */
 function shoutbox_update_5200() {
 
@@ -83,3 +84,32 @@ function shoutbox_update_5200() {
   return $items;
 }
 
+/**
+ * Update to 2.0
+ */
+function shoutbox_update_6200() {
+  $items = array();
+  $items[] = update_sql("ALTER TABLE {shoutbox} DROP url");
+  $items[] = update_sql("ALTER TABLE {shoutbox} MODIFY nick varchar(60)");
+  return $items;
+}
+
+/**
+ * Remove size restrictions on shout messages
+ */
+function shoutbox_update_6201() {
+  $items = array();
+  $items[] = update_sql("ALTER TABLE {shoutbox} MODIFY shout longtext NOT NULL");
+  return $items;
+}
+
+/**
+ * Add module field to the schema
+ */
+function shoutbox_update_6202() {
+  $items = array();
+  $items[] = update_sql("ALTER TABLE {shoutbox} ADD module varchar(64)");
+  // Default all available shouts to belong to shoutbox
+  db_query("UPDATE {shoutbox} SET module = 'shoutbox'");
+  return $items;
+}

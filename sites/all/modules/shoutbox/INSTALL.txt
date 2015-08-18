@@ -1,9 +1,10 @@
-// $Id: INSTALL.txt,v 1.4.2.1 2008/07/15 07:55:28 disterics Exp $
 Readme
 ------
 
 The Shoutbox module provides a block where visitors can quickly post short messages. 
 Permissions can be set so that posts go live immediately or go to a moderation queue.
+
+** The translations are NOT SUPPORTED in the 2.x branch yet! **
 
 Requirements
 ------------
@@ -38,6 +39,7 @@ Benjamin Shell <drupal@benjaminshell.com>
 
 Maintainers
 -----------
+mikestefff
 disterics 
 snpower
 

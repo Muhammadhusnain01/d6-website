@@ -1,8 +1,9 @@
 <?php
-// $Id: views_handler_filter_aggregator_category_cid.inc,v 1.2 2009/06/10 22:04:57 merlinofchaos Exp $
 
 /**
  * Filter by aggregator category cid
+ *
+ * @ingroup views_filter_handlers
  */
 class views_handler_filter_aggregator_category_cid extends views_handler_filter_in_operator {
   function get_value_options() {

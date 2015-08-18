@@ -1,5 +1,4 @@
 <?php
-// $Id: user_badges.views.inc,v 1.1 2008/11/20 17:12:09 heine Exp $
 
 /**
  * @file
@@ -61,7 +60,7 @@ function user_badges_views_data() {
   // Describe the user_badges_badges table.
   $data['user_badges_badges']['table']['group']  = t('User Badges');
 
-  //We always the user_badges_badges table on to the user_badges_user table
+  //We always join the user_badges_badges table on to the user_badges_user table
   $user_badges_badges_join_info = array(
     'left_table' => 'user_badges_user',
     'left_field' => 'bid',

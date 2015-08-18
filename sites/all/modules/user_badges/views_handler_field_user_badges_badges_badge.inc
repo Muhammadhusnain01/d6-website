@@ -1,5 +1,4 @@
 <?php
-// $Id: views_handler_field_user_badges_badges_badge.inc,v 1.1.2.1 2009/08/11 15:08:07 likeless Exp $
 /**
  * @file
  * A handler to provide proper displays for individual user badges.
@@ -27,16 +26,24 @@ class views_handler_field_user_badges_badges_badge extends views_handler_field {
 
   //Render the badge HTML
   function render($values) {
-    //create the badge object
-    $badge->bid = $values->{$this->field_alias};
-    $badge->name = $values->{$this->aliases['name']};
-    $badge->image = $values->{$this->aliases['image']};
-    $badge->href = $values->{$this->aliases['href']};
-    $badge->weight = $values->{$this->aliases['weight']};
-    
-    //Send it through the standard theme and return it
-    return theme('user_badge', $badge);
+    //Format the field by theming the badge
+    //First, check to see if there is a badge
+    if (isset($values->{$this->field_alias})) {
+      //create the badge object
+      $badge = new stdClass();
+      $badge->bid = $values->{$this->field_alias};
+      $badge->name = $values->{$this->aliases['name']};
+      $badge->image = $values->{$this->aliases['image']};
+      $badge->href = $values->{$this->aliases['href']};
+      $badge->weight = $values->{$this->aliases['weight']};
+  
+      //Send it through the standard theme and return it
+      return theme('user_badge', array('badge' => $badge));
+    }
+    //Else, just return the unformatted field
+    else {
+      $value = $this->get_value($values);
+      return $this->sanitize_value($value);
+    }
   }
-  
-  
 }

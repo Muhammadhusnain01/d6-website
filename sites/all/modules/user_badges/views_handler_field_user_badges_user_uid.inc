@@ -1,5 +1,4 @@
 <?php
-// $Id: views_handler_field_user_badges_user_uid.inc,v 1.1 2008/11/20 17:12:09 heine Exp $
 /**
  * @file
  * A handler to provide proper displays for user badges.

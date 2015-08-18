@@ -1,14 +1,12 @@
-; $Id: shoutbox.info,v 1.4.2.1 2008/04/09 06:06:44 disterics Exp $
-; Shoutbox module
-; Originally by benshell;
-; Now maintained by disterics, snpower
-name = shoutbox
-description = This module enables you to display a shoutbox block.
+name = Shoutbox
+description = This module enables you to display a shoutbox block and page.
 core = 6.x
+package = Shoutbox
 
-; Information added by drupal.org packaging script on 2008-08-05
-version = "6.x-1.0"
+
+; Information added by drupal.org packaging script on 2012-02-17
+version = "6.x-2.8"
 core = "6.x"
 project = "shoutbox"
-datestamp = "1217919928"
+datestamp = "1329492339"
 

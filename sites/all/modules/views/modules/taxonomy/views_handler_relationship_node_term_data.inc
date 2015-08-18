@@ -1,10 +1,15 @@
 <?php
-// $Id: views_handler_relationship_node_term_data.inc,v 1.3 2009/10/05 22:31:09 merlinofchaos Exp $
 /**
  * @file
  * Views' relationship handlers.
  */
 
+
+/**
+ * Relationship handler to return the taxonomy terms of nodes.
+ *
+ * @ingroup views_relationship_handlers
+ */
 class views_handler_relationship_node_term_data extends views_handler_relationship  {
   function option_definition() {
     $options = parent::option_definition();

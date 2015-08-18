@@ -1,7 +1,8 @@
 <?php
-// $Id: views_handler_argument_null.inc,v 1.1 2008/09/03 19:21:28 merlinofchaos Exp $
 /**
  * Argument handler that ignores the argument.
+ *
+ * @ingroup views_argument_handlers
  */
 class views_handler_argument_null extends views_handler_argument {
   function option_definition() {

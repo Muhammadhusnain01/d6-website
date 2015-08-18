@@ -15,7 +15,7 @@ General settings can be configured at: Site Configuration > Views Send
 
 USAGE
 
- 1. Create a view and add at least one column containing E-mail addresses.
+ 1. Create a view and add at least one column containing e-mail addresses.
  2. [Optional] Expose Views filters to let the user easily build list of
     recipients using UI.
  3. Create a "Page" display and set the Style to "Bulk Operations".
@@ -23,8 +23,8 @@ USAGE
     select Send mass mail (views_send_mail_action).
  5. Save the view, load the page, use exposed filters to build the list, select
     all or some rows and choose "Send mass mail".
- 6. Fill the message form to configure the E-mail. Use tokens to personalize
-    your E-mail.
+ 6. Fill the message form to configure the e-mail. Use tokens to personalize
+    your e-mail.
  7. Preview and send the message.
 
 DEPENDENCIES & INTEGRATION
@@ -32,7 +32,7 @@ DEPENDENCIES & INTEGRATION
  * Views Send depends on Views Bulk Operations.
  * The module integrates features from:
   o Mime Mail. When Mime Mail module is enabled, the user can choose to send
-    rich HTML messages.
+    rich HTML messages and/or use attachments.
   o Tokens. When Tokens module is enabled, the user can insert context tokens
     into the subject or body of the message. Note that row-based tokens are
     available even if Tokens module is disabled.
@@ -54,6 +54,8 @@ HOW CAN YOU GET INVOLVED?
 
 MAINTAINERS & SPONSORS
 
- * Module author & maintainer
+ * Module maintainer
+   Hans Fredrik Nordhaug (hansfn) | http://drupal.org/user/40521
+ * Module author of original Drupal 6 version
    Claudiu Cristea (claudiu.cristea) | http://drupal.org/user/56348
- * This module is sponsored by Grafit SRL | http://www.grafitsolutions.ro
+ * This module was sponsored by Grafit SRL | http://www.grafitsolutions.ro
