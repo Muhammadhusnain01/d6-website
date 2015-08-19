@@ -21,7 +21,6 @@ Drupal.nodereference_explorer.modalframe.open = function(path, options, value) {
     url: path +'/'+ Drupal.encodeURIComponent(value),
     autoFit: false
   });
-  //console.log(path+'/'+ Drupal.encodeURIComponent(value));
   Drupal.modalFrame.open(options);
 };
 /**

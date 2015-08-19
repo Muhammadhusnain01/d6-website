@@ -22,7 +22,7 @@ function piwik_admin_settings_form(&$form_state) {
     '#size' => 15,
     '#maxlength' => 20,
     '#required' => TRUE,
-    '#description' => t('The user account number is unique to the websites domain. Click the <strong>Settings</strong> link in your Piwik account, then the <strong>Sites</strong> tab and enter the <strong>ID</strong> into this field.'),
+    '#description' => t('The user account number is unique to the websites domain. Click the <strong>Settings</strong> link in your Piwik account, then the <strong>Websites</strong> tab and enter the appropriate site <strong>ID</strong> into this field.'),
   );
   $form['account']['piwik_url_http'] = array(
     '#type' => 'textfield',
@@ -40,6 +40,11 @@ function piwik_admin_settings_form(&$form_state) {
     '#size' => 80,
     '#maxlength' => 255,
     '#description' => t('The URL to your Piwik base directory with SSL certificate installed. Required if you track a SSL enabled website. Example: "https://www.example.com/piwik/".'),
+  );
+  // Required for automated form save testing only.
+  $form['account']['piwik_url_skiperror'] = array(
+    '#type' => 'hidden',
+    '#default_value' => FALSE,
   );
 
   $form['domain_tracking'] = array(
@@ -80,12 +85,12 @@ function piwik_admin_settings_form(&$form_state) {
 
   $access = user_access('use PHP for tracking visibility');
   $visibility = variable_get('piwik_visibility_pages', 0);
-  $pages = variable_get('piwik_pages', '');
+  $pages = variable_get('piwik_pages', PIWIK_PAGES);
 
   if ($visibility == 2 && !$access) {
     $form['page_vis_settings'] = array();
-    $form['page_vis_settings']['visibility'] = array('#type' => 'value', '#value' => 2);
-    $form['page_vis_settings']['pages'] = array('#type' => 'value', '#value' => $pages);
+    $form['page_vis_settings']['piwik_visibility_pages'] = array('#type' => 'value', '#value' => 2);
+    $form['page_vis_settings']['piwik_pages'] = array('#type' => 'value', '#value' => $pages);
   }
   else {
     $options = array(t('Add to every page except the listed pages.'), t('Add to the listed pages only.'));
@@ -158,6 +163,12 @@ function piwik_admin_settings_form(&$form_state) {
     '#description' => t('Allow individual users to customize the visibility of tracking in their account settings. Only users with %permission permission are allowed to set their own preference.', array('%permission' => t('opt-in or out of tracking'))),
     '#default_value' => variable_get('piwik_custom', 0),
   );
+  $form['user_vis_settings']['piwik_trackuserid'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Track User ID'),
+    '#default_value' => variable_get('piwik_trackuserid', 0),
+    '#description' => t('User ID enables the analysis of groups of sessions, across devices, using a unique, persistent, and non-personally identifiable ID string representing a user. <a href="@url">Learn more about the benefits of using User ID</a>.', array('@url' => 'http://piwik.org/docs/user-id/')),
+  );
 
   // Link specific configurations.
   $form['linktracking'] = array(
@@ -166,18 +177,23 @@ function piwik_admin_settings_form(&$form_state) {
     '#collapsible' => TRUE,
     '#collapsed' => FALSE,
   );
+  $form['linktracking']['piwik_trackmailto'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Track clicks on mailto links'),
+    '#default_value' => variable_get('piwik_trackmailto', 1),
+  );
   $form['linktracking']['piwik_track'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Track download and outgoing links'),
+    '#title' => t('Track download and outbound links'),
     '#default_value' => variable_get('piwik_track', 1),
-    '#description' => t('Enables tracking of clicks on download and outgoing links.')
+    '#description' => t('Enables tracking of clicks on download and outbound links.')
   );
   $form['linktracking']['piwik_trackfiles_extensions'] = array(
     '#type' => 'textfield',
     '#title' => t('File extensions to track'),
-    '#default_value' => variable_get('piwik_trackfiles_extensions', PK_TRACKFILES_EXTENSIONS),
-    '#description' => t('A pipe separated list of file extensions that should be tracked when clicked with regular expression support. Example: !extensions', array('!extensions' => PK_TRACKFILES_EXTENSIONS)),
-    '#maxlength' => 255,
+    '#default_value' => variable_get('piwik_trackfiles_extensions', PIWIK_TRACKFILES_EXTENSIONS),
+    '#description' => t('A pipe separated list of file extensions that should be tracked when clicked with regular expression support. Example: !extensions', array('!extensions' => PIWIK_TRACKFILES_EXTENSIONS)),
+    '#maxlength' => 500,
   );
 
   // Privacy specific configurations.
@@ -251,7 +267,7 @@ function piwik_admin_settings_form(&$form_state) {
   $form['advanced']['piwik_site_search'] = array(
     '#type' => 'checkbox',
     '#title' => t('Track internal search'),
-    '#description' => t('If checked, internal search keywords are tracked. You must manually install and configure the SiteSearch plugin for your sites. For the setting <em>Search URL</em> use a value of <strong>/search</strong> and for <em>Search Parameter</em> use a value of <strong>query</strong>. For more information see <a href="@url">SiteSearch plugin for piwik</a>.', array('@url' => 'http://github.com/BeezyT/piwik-sitesearch/wiki')) . $site_search_dependencies,
+    '#description' => t('If checked, internal search keywords are tracked.') . $site_search_dependencies,
     '#default_value' => variable_get('piwik_site_search', FALSE),
     '#disabled' => (module_exists('search') ? FALSE : TRUE),
   );
@@ -300,16 +316,26 @@ function piwik_admin_settings_form_validate($form, &$form_state) {
     form_set_error('piwik_site_id', t('A valid Piwik site ID is an integer only.'));
   }
 
-  $url = $form_state['values']['piwik_url_http'] .'piwik.php';
+  $piwik_url = $form_state['values']['piwik_url_http'];
+  if ('/' != drupal_substr($piwik_url, -1, 1)) {
+    $piwik_url = $piwik_url . '/';
+    $form_state['values']['piwik_url_http'] = $piwik_url;
+  }
+  $url = $piwik_url . 'piwik.php';
   $result = drupal_http_request($url);
-  if ($result->code != 200) {
+  if ($result->code != 200 && $form_state['values']['piwik_url_skiperror'] == FALSE) {
     form_set_error('piwik_url_http', t('The validation of "@url" failed with error "@error" (HTTP code @code).', array('@url' => check_url($url), '@error' => $result->error, '@code' => $result->code)));
   }
 
   if (!empty($form_state['values']['piwik_url_https'])) {
-    $url = $form_state['values']['piwik_url_https'] .'piwik.php';
+    $piwik_url = $form_state['values']['piwik_url_https'];
+    if ('/' != drupal_substr($piwik_url, -1, 1)) {
+      $piwik_url = $piwik_url . '/';
+      $form_state['values']['piwik_url_https'] = $piwik_url;
+    }
+    $url = $piwik_url . 'piwik.php';
     $result = drupal_http_request($url);
-    if ($result->code != 200) {
+    if ($result->code != 200 && $form_state['values']['piwik_url_skiperror'] == FALSE) {
       form_set_error('piwik_url_https', t('The validation of "@url" failed with error "@error" (HTTP code @code).', array('@url' => check_url($url), '@error' => $result->error, '@code' => $result->code)));
     }
   }
@@ -328,6 +354,7 @@ function piwik_admin_settings_form_validate($form, &$form_state) {
   }
 
   // Trim some text area values.
+  $form_state['values']['piwik_site_id'] = trim($form_state['values']['piwik_site_id']);
   $form_state['values']['piwik_pages'] = trim($form_state['values']['piwik_pages']);
   $form_state['values']['piwik_codesnippet_before'] = trim($form_state['values']['piwik_codesnippet_before']);
   $form_state['values']['piwik_codesnippet_after'] = trim($form_state['values']['piwik_codesnippet_after']);

@@ -20,8 +20,11 @@ class nodereference_explorer_plugin_content_nodereference extends nodereference_
    * @param $edit
    * @param $form_state
    * @param $form
+   * @return
+   *   array form element
    */
   public function widget_process($element, $edit, $form_state, $form) {
+    $element = parent::widget_process($element, $edit, $form_state, $form); // sanitize widget values
     $element['#value_callback'] = 'nodereference_autocomplete_value';
     return nodereference_autocomplete_process($element, $edit, $form_state, $form);
   }

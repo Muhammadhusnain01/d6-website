@@ -1,4 +1,4 @@
-// $Id: explorer.dialog.js,v 1.6 2010/04/24 14:20:46 gnindl Exp $
+// $Id: explorer.dialog.js,v 1.7 2010/08/27 08:19:43 gnindl Exp $
 
 /**
  * @file explorer.dialog.js
@@ -36,13 +36,22 @@ Drupal.nodereference_explorer.dialog.open = function(dialog, options, value) {
   		Drupal.nodereference_explorer.dialog.mask();
   		$(this).prepend($('<input id="edit-selection" type="hidden" />').val(value)); 
   		Drupal.attachBehaviors(this);
-  	  },
-  	  focus:       function() {Drupal.nodereference_explorer.dialog.resetDialogContentSize(this, options.height)},
-  	  resize:      function() {Drupal.nodereference_explorer.dialog.resetDialogContentSize(this, options.height)},
-  	  resizeStart: function() {Drupal.nodereference_explorer.dialog.resetDialogContentSize(this, options.height)},
-  	  resizeStop:  function() {Drupal.nodereference_explorer.dialog.resetDialogContentSize(this, options.height)}
+  	  }
     }
   );
+  
+  //In jQuery UI 1.6 the scrollbar size has to be synchronized with the dialog container and button pane manually.
+  //Therefore we have to assign listeners which react on dialog resize. In jQuery UI 1.7 this has been fixed.
+  if (parseFloat($.ui['version']) < 1.7) {
+    $.extend(options, 
+	  {
+	    focus:       function() {Drupal.nodereference_explorer.dialog.resetDialogContentSize(this, options.height);},
+  	    resize:      function() {Drupal.nodereference_explorer.dialog.resetDialogContentSize(this, options.height);},
+  	    resizeStart: function() {Drupal.nodereference_explorer.dialog.resetDialogContentSize(this, options.height);},
+  	    resizeStop:  function() {Drupal.nodereference_explorer.dialog.resetDialogContentSize(this, options.height);}
+	  }
+    );
+  }
   
   $(dialog).dialog(options); 
   //Fix for Chrome/Safari, where those browser sets width to 0
@@ -64,11 +73,13 @@ Drupal.nodereference_explorer.dialog.addButtonPane = function(actions, settings)
   	ok = actions.ok;
   
   buttons[ok] = function() {
-    var value = $('#edit-selection', this).val();
+    var value = decodeURIComponent(($('#edit-selection', this).val() + '').replace(/\+/g, '%20'));
     var widget = '#' + settings['widget'];
     var type = settings['field_type'];
-    if (value != $(widget).val()) //if different from old value, save it
+    //if different from old value, save it
+    if (value != $(widget).val()) {
 	  Drupal.nodereference_explorer.actions.setValue(widget, type, value);
+    }
     $(this).dialog('close');
   };
   

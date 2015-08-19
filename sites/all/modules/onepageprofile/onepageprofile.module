@@ -1,5 +1,4 @@
 <?php
-// $Id: onepageprofile.module,v 1.7.2.14 2010/09/12 14:44:01 aidan Exp $
 
 
 /**
@@ -66,51 +65,71 @@ function onepageprofile_user($op, &$edit, &$account, $category = NULL) {
       if ($category == 'account') {
         $form = array();
 
-        // Grab all of the categories provided by the profile module
+        // profile module
         $categories = profile_categories();
         foreach ($categories as $category) {
           if (_onepageprofile_check_access($account, $category)) {
             $category_name = $category['name'];
             $category_form = profile_form_profile($edit, $account, $category_name, FALSE);
+            
+            // Add translation support
+            // http://drupal.org/node/694590
             if (module_exists('i18nprofile')) {
               i18nprofile_form_translate_category($category_form, $category_name);
             }
 
+            // Prevent errors with other modules which expect an #id
+            // http://drupal.org/node/901444
             $form_state = array('storage' => NULL, 'submitted' => FALSE);
             $category_form['#id'] = 'profile_form_profile';
             $category_form['#parameters'] = array('profile_form_profile', $edit, $account, $category_name, FALSE);
-            drupal_alter('form', $category_form, $form_state, 'profile_form_profile');
+
+            // See comments in drupal_alter in includes/common.inc
+            // http://drupal.org/node/901444
+            $data = &$category_form;
+            $data['__drupal_alter_by_ref'] = array(&$form_state);
+            drupal_alter('form', $data, 'profile_form_profile');
 
             $form += $category_form;
           }
         }
 
-        // Other modules
+        // simplenews module
         if (module_exists('simplenews')) {
           $simplenews_form = simplenews_user('form', $edit, $account, 'newsletter');
           if (is_array($simplenews_form)) {
             $form += $simplenews_form;
+
+            // Simplenews wipes out the #submit handler
+            // http://drupal.org/node/1269104
+            if (isset($form['#submit']) && is_array($form['#submit']) &&
+                array_search('user_profile_form_submit', $form['#submit']) === FALSE) {
+              $form['#submit'][] = 'user_profile_form_submit';
+            }
           }
         }
 
         return $form;
       }
-
       break;
 
     case 'update':
+      // We need to call profile_save_profile because the profile module expects
+      // $category to be set to the profile field group. With onepageprofile, this
+      // is no longer the case.
+      //
       // Ensure we're on the account edit page:
       // - form_build_id ensures this is not called programatically
-      // - arg(3) ensures we're not on a module provided category
-      if (isset($edit['form_build_id']) && !arg(3)) {
+      // - $category === 'account' ensures we're not on a module provided category page.
+      if (isset($edit['form_build_id']) && $category === 'account') {
 
-        // Save information for the profile module
+        // profile module
         $categories = profile_categories();
         foreach ($categories as $category) {
           profile_save_profile($edit, $account, $category['name']);
         }
 
-        // Save information for other modules
+        // simplenews module
         if (module_exists('simplenews')) {
           simplenews_user('update', $edit, $account, 'newsletter');
         }
@@ -129,12 +148,28 @@ function onepageprofile_user($op, &$edit, &$account, $category = NULL) {
 function onepageprofile_form_user_profile_form_alter(&$form, $form_state) {
   if ($weights = variable_get('onepageprofile_weights', '')) {
     foreach (element_children($form) as $field) {
-      $form[$field]['#weight'] = $weights[$field];
+      if (!empty($weights[$field])) {
+        $form[$field]['#weight'] = $weights[$field];
+      }
     }
     uasort($form, 'element_sort');
   }
 }
 
+/**
+ * Implements hook_profile_alter().
+ *
+ * Sorts categories on the view page according to specified weights.
+ */
+function onepageprofile_profile_alter(&$account) {
+  $categories = _onepageprofile_get_categories();
+
+  foreach ($categories as $key => $category) {
+    if (isset($account->content[$key])) {
+      $account->content[$key]['#weight'] = $category['#weight'];
+    }
+  }
+}
 
 /**
  * Admin page to change category weights
@@ -208,7 +243,7 @@ function onepageprofile_settings_reset($form, $form_state) {
  * Implementation of hook_domianignore().
  *
  * Prevent the domain module from altering the $form['#action'] of the
- * profile forms as they are added to the user form. 
+ * profile forms as they are added to the user form.
  */
 function onepageprofile_domainignore() {
   return array('profile_form_profile');
@@ -288,7 +323,7 @@ function _onepageprofile_get_categories() {
   foreach (element_children($form) as $field) {
 
     // Special check for theme_select
-    if ($field == 'theme_select') {
+    if ($field == 'theme_select' && isset($form[$field])) {
       $categories[$field] = array(
         '#weight' => $form[$field]['#weight'],
         '#title'  => $form[$field]['themes']['#title'],

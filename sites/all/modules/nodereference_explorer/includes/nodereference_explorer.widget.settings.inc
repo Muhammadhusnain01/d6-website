@@ -61,11 +61,29 @@ function nodereference_explorer_widget_settings_form($widget) {
         'path' => url(NODE_REFERENCE_EXPLORER_MENU_CALLBACK_PREVIEW_DISPLAYS),
         'widget' => 'edit-' . form_clean_id('content_preview'),
         'value' => isset($widget['content_preview']) ? $widget['content_preview'] : 'preview',
+        'widget_dialog' => 'edit-' . form_clean_id('dialog_displays'),
+        'value_dialog' => isset($widget['dialog_displays']) ? array_keys($widget['dialog_displays']) : array(),
       ),
     );
     drupal_add_js($setting, 'setting'); //js settings
     nodereference_explorer_add_js('explorer.settings'); //preview displays behavior js
-
+    
+    $form['content']['create_ref'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Create and reference'),
+      '#default_value' => isset($widget['create_ref']) ? $widget['create_ref'] : 0,
+      '#description' =>  t('Enable a button for creating and referencing nodes on the fly. Requires !modalframe module.',
+        array(
+          '!modalframe' => l(theme('placeholder', 'Modal Frame'), 'http://drupal.org/project/modalframe', array('html' => TRUE)),
+        )
+      ),
+    );
+   
+    // disable create option if modalframe is not installed
+    if (!module_exists('modalframe')) {
+      $form['content']['create_ref']['#attributes'] = array('disabled' => 'disabled');
+    }
+    
     $form['content']['content_preview'] = array(
       '#type' => 'select',
       '#options' => array(),
@@ -113,6 +131,20 @@ function nodereference_explorer_widget_settings_form($widget) {
       '#description' => t('The label in the title bar.'),
     );
 
+    $form['dialog']['dialog_displays'] = array(
+      '#type' => 'select',
+      '#options' => array(),
+      '#multiple' => TRUE,
+      '#title' => t('Dialog displays'),
+      '#default_value' => isset($widget['dialog_displays']) ? $widget['dialog_displays'] : array(),
+      '#description' => t('Unselect all options to present all displays.'),
+      '#element_validate' => array(),
+      //Avoid a form error message on validation, by skipping this element, i. e. set to already validated.
+      //Options are updated via JSON on the JavaScript side, so we do not know the allowed
+      //values yet. Users may choose a preview display according to "View used to select the nodes" selection.
+      '#validated' => TRUE,
+    );
+
     $form['dialog']['dialog_width@int'] = array(
       '#type' => 'textfield',
       '#title' => t('Width'),
@@ -129,25 +161,24 @@ function nodereference_explorer_widget_settings_form($widget) {
       '#description' => t('The preferred height of the dialog window.'),
     );
 
-    //INSERTION METHOD
+    //Set dialog API, modalframe, if existing
+    $api = 'nodereference_explorer';
     $dialog_apis = array(
-      'nodereference_explorer' => 'Built-in',
+      $api => 'Built-in (Deprecated)',
     );
-    /*if (module_exists('popups')) {
-      $dialog_apis['popups'] = 'Popups API (Ajax Dialogs)';
-    }*/
     if (module_exists('modalframe')) {
-      $dialog_apis['modalframe'] = 'Modal Frame API';
+      $api = 'modalframe';
+      $dialog_apis[$api] = 'Modal Frame (Recommended)';
     }
 
     $form['dialog']['dialog_api'] = array(
       '#type' => 'select',
       '#title' => t('Dialog API'),
-      '#default_value' => isset($widget['dialog_api']) ? $widget['dialog_api'] : 'nodereference_explorer',
+      '#default_value' => isset($widget['dialog_api']) ? $widget['dialog_api'] : $api,
       '#options' => $dialog_apis,
-      '#description' => t('Nodereference Explorer supports other Drupal module APIs for dialogs: !modalframe.', //!popups,
+      '#description' => t('It is recommended to install !modalframe instead of the deprecated "Built-in" API.',
         array(
-          '!modalframe' => l(theme('placeholder', 'Modal Frame API'), 'http://drupal.org/project/modalframe', array('html' => TRUE)),
+          '!modalframe' => l(theme('placeholder', 'Modal Frame'), 'http://drupal.org/project/modalframe', array('html' => TRUE)),
         )
       ),
     );
@@ -359,8 +390,10 @@ function nodereference_explorer_widget_settings_save($widget) {
     return array_merge(
       $save,
       array(
+        'create_ref',
         'content_preview',
         'content_preview_position',
+        'dialog_displays',
         'dialog_title',
         'theme_css',
         'dialog_api',
@@ -404,6 +437,7 @@ function _nodereference_explorer_widget_settings_get_content_field($widget) {
     $error_element = $widget['default_value'][0]['_error_element'];
     $parts = explode('][', $error_element);
     $field_name = $parts[1];
+    $field_name = (strlen($field_name) > 32) ? substr($field_name, 0, 32) : $field_name;
     if (isset($field_name))
       return content_fields($field_name);
   }
