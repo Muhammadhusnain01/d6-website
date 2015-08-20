@@ -1,5 +1,4 @@
 <?php
-// $Id: smileys.install,v 1.3.2.9 2009/01/05 08:50:25 Gurpartap Exp $
 
 /**
  * Implementation of hook_schema().

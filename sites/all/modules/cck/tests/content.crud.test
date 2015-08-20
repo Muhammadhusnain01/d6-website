@@ -1,5 +1,4 @@
 <?php
-// $Id: content.crud.test,v 1.4.2.16 2008/12/08 12:41:08 yched Exp $
 
 // TODO:
 // - Test search indexing
@@ -21,7 +20,7 @@ class ContentCrudTestCase extends DrupalWebTestCase {
    */
   function setUp() {
     $args = func_get_args();
-    $modules = array_merge(array('content', 'schema', 'text'), $args);
+    $modules = array_merge(array('content_test', 'content', 'schema', 'text'), $args);
     call_user_func_array(array('parent','setUp'), $modules);
     module_load_include('inc', 'content', 'includes/content.crud');
   }
@@ -376,7 +375,7 @@ class ContentCrudTestCase extends DrupalWebTestCase {
 }
 
 class ContentCrudBasicTest extends ContentCrudTestCase {
-  function getInfo() {
+  public static function getInfo() {
     return array(
       'name' => t('CRUD - Basic API tests'),
       'description' => t('Tests the field CRUD (create, read, update, delete) API. <strong>Requires <a href="@schema_link">Schema module</a>.</strong>', array('@schema_link' => 'http://www.drupal.org/project/schema')),
@@ -432,7 +431,7 @@ class ContentCrudBasicTest extends ContentCrudTestCase {
 }
 
 class ContentCrudSingleToMultipleTest extends ContentCrudTestCase {
-  function getInfo() {
+  public static function getInfo() {
     return array(
       'name' => t('CRUD - Single to multiple'),
       'description' => t('Tests the field CRUD (create, read, update, delete) API by creating a single value field and changing it to a multivalue field, sharing it between several content types. <strong>Requires <a href="@schema_link">Schema module</a>.</strong>', array('@schema_link' => 'http://www.drupal.org/project/schema')),
@@ -507,7 +506,7 @@ class ContentCrudSingleToMultipleTest extends ContentCrudTestCase {
 }
 
 class ContentCrudMultipleToSingleTest extends ContentCrudTestCase {
-  function getInfo() {
+  public static function getInfo() {
     return array(
       'name' => t('CRUD - Multiple to single'),
       'description' => t('Tests the field CRUD (create, read, update, delete) API by creating a multivalue field and changing it to a single value field, sharing it between several content types. <strong>Requires <a href="@schema_link">Schema module</a>.</strong>', array('@schema_link' => 'http://www.drupal.org/project/schema')),
@@ -641,7 +640,7 @@ class ContentCrudMultipleToSingleTest extends ContentCrudTestCase {
 }
 
 class ContentUICrud extends ContentCrudTestCase {
-  function getInfo() {
+  public static function getInfo() {
     return array(
       'name' => t('Admin UI'),
       'description' => t('Tests the CRUD (create, read, update, delete) operations for content fields via the UI. <strong>Requires <a href="@schema_link">Schema module</a>.</strong>', array('@schema_link' => 'http://www.drupal.org/project/schema')),
@@ -886,7 +885,7 @@ class ContentUICrud extends ContentCrudTestCase {
 }
 
 class ContentOptionWidgetTest extends ContentCrudTestCase {
-  function getInfo() {
+  public static function getInfo() {
     return array(
       'name' => t('Option widgets'),
       'description' => t('Tests the optionwidgets.'),
@@ -1234,3 +1233,70 @@ class ContentOptionWidgetTest extends ContentCrudTestCase {
 
 }
 
+class ContentEmptyDeltaTest extends ContentCrudTestCase {
+  public static function getInfo() {
+    return array(
+      'name' => t('Empty deltas'),
+      'description' => t('Test leaving empty values on a multivalue field and then removing them.'),
+      'group' => t('CCK'),
+    );
+  }
+
+  function setUp() {
+    parent::setUp();
+    $this->loginWithPermissions();
+    $this->acquireContentTypes(1);
+  }
+
+  function testEmptyTextField() {
+    // Create a content type with a multivalue text field.
+    $type = $this->content_types[0];
+    $type_url = str_replace('_', '-', $type->type);
+    $value1 = $this->randomName(5);
+    $value2 = $this->randomName(5);
+    $value3 = $this->randomName(5);
+    $field = $this->createFieldText(array('text_processing' => 0, 'multiple' => 1));
+    $field_name = $field['field_name'];
+
+    // Create a node with three values set.
+    $edit = array(
+      'title' => $this->randomName(20),
+      'body' => $this->randomName(20),
+      'type' => $type->name,
+    );
+    $edit[$field_name][0]['value'] = $value1;
+    $edit[$field_name][1]['value'] = $value2;
+    $edit[$field_name][2]['value'] = $value3;
+    $node = $this->drupalCreateNode($edit);
+    $max_delta = max(array_keys($node->{$field_name}));
+    $this->assertEqual($max_delta, 2, 'Three values saved, highest delta is 2');
+    $this->drupalGet('node/'. $node->nid);
+    $this->assertText($value1, 'First value displayed');
+    $this->assertText($value2, 'Second value displayed');
+    $this->assertText($value3, 'Third value displayed');
+
+    // Set second value to an empty string.
+    $node->{$field_name}[1]['value'] = '';
+    node_save($node);
+    $node = node_load($node->nid, NULL, TRUE);
+    $this->assertIdentical($node->{$field_name}[1]['value'], NULL, 'Second value is empty');
+    $max_delta = max(array_keys($node->{$field_name}));
+    $this->assertEqual($max_delta, 2, 'Three values saved, highest delta is 2');
+    $this->drupalGet('node/'. $node->nid);
+    $this->assertText($value1, 'First value displayed');
+    $this->assertNoText($value2, 'Second value not displayed');
+    $this->assertText($value3, 'Third value displayed');
+
+    // Remove the second value.
+    $node->{$field_name}[1]['_remove'] = 1;
+    node_save($node);
+    $node = node_load($node->nid, NULL, TRUE);
+    $this->assertEqual($node->{$field_name}[1]['value'], $value3, 'Third value has moved to delta 1');
+    $max_delta = max(array_keys($node->{$field_name}));
+    $this->assertEqual($max_delta, 1, 'Two values saved, highest delta is 1');
+    $this->drupalGet('node/'. $node->nid);
+    $this->assertText($value1, 'First value displayed');
+    $this->assertNoText($value2, 'Second value not displayed');
+    $this->assertText($value3, 'Third value displayed');
+  }
+}

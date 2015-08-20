@@ -1,4 +1,3 @@
-// $Id: smileys.js,v 1.1.2.3 2009/01/05 08:50:25 Gurpartap Exp $
 
 /* Filename: smileys.js
  * jQuery Smileys Code for Drupal smileys module.

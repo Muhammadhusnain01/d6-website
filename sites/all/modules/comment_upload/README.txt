@@ -1,4 +1,3 @@
-$Id: README.txt,v 1.2.2.7 2008/09/15 16:45:15 heine Exp $
 
 Comment upload provides the ability to upload "file attachments" to comments.
 

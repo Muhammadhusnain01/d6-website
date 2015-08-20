@@ -3,9 +3,9 @@ description = Move comments to other threads or convert them to nodes.
 core = 6.x
 dependencies[] = comment
 
-; Information added by drupal.org packaging script on 2011-02-25
-version = "6.x-1.x-dev"
+; Information added by Drupal.org packaging script on 2015-04-09
+version = "6.x-1.0-alpha1"
 core = "6.x"
 project = "comment_mover"
-datestamp = "1298619002"
+datestamp = "1428614890"
 

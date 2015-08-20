@@ -1,5 +1,4 @@
 <?php
-// $Id: smileys.admin.inc,v 1.1.2.6 2010/04/07 18:03:05 Gurpartap Exp $
 
 function _smileys_check_filter() {
   $smileys_filter = FALSE;
@@ -125,18 +124,18 @@ function smileys_admin_list() {
   $output = '<form id="smileys-admin-form">';
   $smileyp = db_query("SELECT DISTINCT package FROM {smileys} ORDER BY package");
   while ($pack = db_fetch_object($smileyp)) {
-    $packages[] = $pack->package;
+    $packages[] = check_plain($pack->package);
 
     $select = '';
     foreach ($categories as $category) {
-      $select .= '<option value="' . $category . '"' . ($category == $pack->package ? 'selected="selected"' : '') . '>' . $category . '</option>' . "\n";
+      $select .= '<option value="' . $category . '"' . ($category == $pack->package ? 'selected="selected"' : '') . '>' . check_plain($category) . '</option>' . "\n";
     }
 
-    $rows[] = array('data' => array(array('data' => '<span>' . $pack->package . '</span>', 'class' => 'category', 'colspan' => 7)), 'class' => 'category');
+    $rows[] = array('data' => array(array('data' => '<span>' . check_plain($pack->package) . '</span>', 'class' => 'category', 'colspan' => 7)), 'class' => 'category');
 
-    $rows[] = array('data' => array(array('data' => '<em>' . t('No smileys in this category') . '</em>', 'colspan' => 7)), 'class' => "category-message category-populated category-" . str_replace(array('_', ' '), '-', drupal_strtolower($pack->package)) . "-message");
+    $rows[] = array('data' => array(array('data' => '<em>' . t('No smileys in this category') . '</em>', 'colspan' => 7)), 'class' => "category-message category-populated category-" . str_replace(array('_', ' '), '-', drupal_strtolower(check_plain($pack->package))) . "-message");
 
-    $list = _smileys_list(1, " WHERE package = '$pack->package' ORDER BY weight");
+    $list = _smileys_list(1, " WHERE package = '" . check_plain($pack->package) . "' ORDER BY weight");
     foreach ($list as $smiley) {
       $each_acronym = explode(' ', $smiley->acronyms);
       if ($smiley->promote_to_box == -1) {

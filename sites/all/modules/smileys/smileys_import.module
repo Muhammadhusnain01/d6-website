@@ -1,5 +1,4 @@
 <?php
-// $Id: smileys_import.module,v 1.2.2.11 2009/06/27 14:48:11 Gurpartap Exp $
 
 /**
  * Implementation of hook_help().
@@ -74,7 +73,6 @@ function smileys_import_page() {
 function smileys_export_page() {
   if ($package = arg(4)) {
     $smileys = db_query("SELECT * FROM {smileys} WHERE package = '%s' ORDER BY weight", $package);
-    $path = drupal_get_path('module', 'smileys');
     if (!$packd = smileys_import_packs($package)) {
       drupal_set_message(t('Cannot find smiley package %pack.', array('%pack' => $package)));
       drupal_goto('admin/settings/smileys/export');
@@ -91,20 +89,18 @@ function smileys_export_page() {
     $output .= "</div>\n";
     $output .= "<div id=\"module-code\">\n";
     $output .= "<textarea cols=\"80\" rows=\"15\">\n";
-    $output .= $smile_pak;
+    $output .= check_plain($smile_pak);
     $output .= "</textarea>\n";
     $output .= "</div>\n";
   }
   else {
-    $packs = array();
     $header = array(t('Smiley Packs'), t('Operations'));
     $smileyp = db_query("SELECT DISTINCT package FROM {smileys} ORDER BY package");
     while ($pack = db_fetch_object($smileyp)) {
       if ($pack->package != 'Uncategorized') {
-      $packs[] = $pack->package;
       $rows[] = array(
-        '<strong>' . $pack->package . '</strong>',
-         l(t('Export'), 'admin/settings/smileys/export/'. $pack->package)
+        '<strong>' . check_plain($pack->package) . '</strong>',
+         l(t('Export'), 'admin/settings/smileys/export/'. check_plain($pack->package))
       );
       }
     }

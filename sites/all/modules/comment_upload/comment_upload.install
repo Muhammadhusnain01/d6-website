@@ -1,5 +1,4 @@
 <?php
-// $Id: comment_upload.install,v 1.4.2.10 2009/02/01 20:06:40 netaustin Exp $
 
 
 /**
@@ -235,7 +234,7 @@ function comment_upload_update_6000() {
 
   db_create_table($ret, 'comment_upload', $schema['comment_upload']);
   if (substr($db_url, 0, 5) == 'mysql') {
-    $max_file_id = db_result(db_query("SELECT MAX(fid) FROM files"));
+    $max_file_id = db_result(db_query("SELECT MAX(fid) FROM {files}"));
     $offset = $max_file_id + 1;
     db_query("INSERT INTO {files} (fid, uid, filename, filepath, filemime, filesize, status, timestamp) SELECT cuf.fid + %d, c.uid, cuf.filename, cuf.filepath, cuf.filemime, cuf.filesize, 1, c.timestamp FROM {comment_upload_files} cuf INNER JOIN {comments} c ON cuf.cid = c.cid", $offset);
     $max_file_id = db_result(db_query("SELECT MAX(fid) FROM {files}"));

@@ -1,4 +1,3 @@
-// $Id: smileys-admin.js,v 1.1.2.4 2009/06/27 14:36:13 Gurpartap Exp $
 
 var smileysLoader = {
   start: function() {
