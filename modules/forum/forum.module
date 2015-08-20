@@ -1,5 +1,4 @@
 <?php
-// $Id: forum.module,v 1.448.2.9 2010/12/15 12:37:01 goba Exp $
 
 /**
  * @file
@@ -166,7 +165,7 @@ function forum_init() {
 /**
  * Implementation of hook_nodeapi().
  */
-function forum_nodeapi(&$node, $op, $teaser, $page) {
+function forum_nodeapi(&$node, $op, $teaser = NULL, $page = NULL) {
   // We are going to return if $node->type is not one of the node
   // types assigned to the forum vocabulary.  If forum_nav_vocabulary
   // is undefined or the vocabulary does not exist, it clearly cannot
@@ -495,7 +494,6 @@ function forum_get_forums($tid = 0) {
   $_forums = taxonomy_get_tree($vid, $tid);
 
   if (count($_forums)) {
-
   $counts = array();
     $sql = "
       SELECT r.tid AS tid, n.nid AS nid, l.comment_count AS nid_comment_count
@@ -568,7 +566,7 @@ function forum_get_forums($tid = 0) {
  */
 function _forum_topics_unread($term, $uid) {
   $sql = "SELECT COUNT(DISTINCT n.nid) FROM {node} n INNER JOIN {term_node} tn ON n.vid = tn.vid AND tn.tid = %d LEFT JOIN {history} h ON n.nid = h.nid AND h.uid = %d WHERE n.status = 1 AND n.created > %d AND h.nid IS NULL";
-   $sql = db_rewrite_sql($sql);
+  $sql = db_rewrite_sql($sql);
   return db_result(db_query($sql, $term, $uid, NODE_NEW_LIMIT));
 }
 
@@ -692,7 +690,7 @@ function template_preprocess_forums(&$variables) {
       // Check if the current user has the 'create' permission for this node type.
       if (node_access('create', $type)) {
         // Fetch the "General" name of the content type;
-        // Push the link with title and url to the array.
+        // Push the link with title and URL to the array.
         $forum_types[$type] = array('title' => t('Post new @node_type', array('@node_type' => node_get_types('name', $type))), 'href' => 'node/add/'. str_replace('_', '-', $type) .'/'. $variables['tid']);
       }
     }
