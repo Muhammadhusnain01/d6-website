@@ -1,5 +1,5 @@
 #Special provider line to disable register_globals
-SetEnv PHP_VER 5
+SetEnv PHP_VER 5_4
 SetEnv REGISTER_GLOBALS 0
 
 #
